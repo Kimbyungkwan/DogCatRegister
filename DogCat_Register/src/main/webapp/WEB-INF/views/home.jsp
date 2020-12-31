@@ -156,7 +156,16 @@
                     <img src="images/dmani.jpg" alt="">
                 </div>
                 <div class="lostAnimal__content">
-                   
+                    <div class="content-left">
+                        <p>아무개</p>
+                        <p>수컷</p>
+                        <p>5살</p>
+                        <p>래브라도 리트리버</p>
+                    </div>
+                    <div class="content-right">
+                        <p>서울 용산</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
+                    </div>
                 </div>
             </li>
             <li class="lostAnimal__list__item">
@@ -164,7 +173,50 @@
                     <img src="images/dmani.jpg" alt="">
                 </div>
                 <div class="lostAnimal__content">
-                    
+                    <div class="content-left">
+                        <p>아무개</p>
+                        <p>수컷</p>
+                        <p>5살</p>
+                        <p>래브라도 리트리버</p>
+                    </div>
+                    <div class="content-right">
+                        <p>서울 용산</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
+                    </div>
+                </div>
+            </li>
+            <li class="lostAnimal__list__item">
+                <div class="image-area">
+                    <img src="images/dmani.jpg" alt="">
+                </div>
+                <div class="lostAnimal__content">
+                    <div class="content-left">
+                        <p>아무개</p>
+                        <p>수컷</p>
+                        <p>5살</p>
+                        <p>래브라도 리트리버</p>
+                    </div>
+                    <div class="content-right">
+                        <p>서울 용산</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
+                    </div>
+                </div>
+            </li>
+            <li class="lostAnimal__list__item">
+                <div class="image-area">
+                    <img src="images/dmani.jpg" alt="">
+                </div>
+                <div class="lostAnimal__content">
+                    <div class="content-left">
+                        <p>아무개</p>
+                        <p>수컷</p>
+                        <p>5살</p>
+                        <p>래브라도 리트리버</p>
+                    </div>
+                    <div class="content-right">
+                        <p>서울 용산</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
+                    </div>
                 </div>
             </li>
         </ul>
