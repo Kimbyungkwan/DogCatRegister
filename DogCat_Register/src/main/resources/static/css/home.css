@@ -1,0 +1,173 @@
+/* variable */
+:root {
+  /* color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-blue: #0071e2;
+}
+
+/* Global */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+  width: 100%;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
+.L_text {
+  font-size: 3rem;
+}
+
+/* Navbar */
+#navbar {
+  width: 100%;
+  height: 4.5rem;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.navbar__container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+}
+
+.navbar__menu > .navbar__menu__item {
+  font-size: 0.8rem;
+  margin-left: 0.8rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navbar__menu > .navbar__menu__item.login {
+  border: 1px solid var(--color-blue);
+}
+
+.navbar__menu > .navbar__menu__item.login a {
+  color: var(--color-blue);
+}
+
+.navbar__menu > .navbar__menu__item.login:hover {
+  background-color: var(--color-blue);
+}
+.navbar__menu > .navbar__menu__item.login:hover a {
+  color: var(--color-white);
+}
+
+/* hero container */
+.hero__container {
+  width: 100%;
+  height: 50vh;
+  min-height: 20rem;
+  margin-top: 4.5rem;
+  background-image: url('/images/lost-dog.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px 250px 200px 51px rgba(255, 255, 255, 0.5);
+}
+
+.hero__content {
+  max-width: 1000px;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__content > h4 {
+  text-align: left;
+  font-size: 2rem;
+  margin-right: 0.2rem;
+
+  align-self: flex-start;
+}
+.content-line {
+  width: 50%;
+  height: 3px;
+  background-color: black;
+  margin: 0 10px;
+  margin: 20px 0;
+  align-self: center;
+}
+
+.hero__content > h5 {
+  text-align: right;
+  font-size: 1.2rem;
+  align-self: flex-end;
+  color: var(--color-blue);
+}
+.register__button {
+  width: 100px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+  font-weight: 400;
+  color: var(--color-white);
+  border: 1px solid var(--color-blue);
+  background-color: var(--color-blue);
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.register__button:link {
+  color: var(--color-white);
+}
+.register__button:visited {
+  color: var(--color-white);
+}
+
+/* newAnimal */
+.newAnimal__list__item .image-area {
+  width: 280px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.image-area > img {
+  width: 100%;
+}
