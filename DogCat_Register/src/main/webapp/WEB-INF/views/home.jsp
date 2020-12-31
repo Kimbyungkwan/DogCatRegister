@@ -53,29 +53,31 @@
         <div class="hero__content">
                 <h4><span class="L_text">당신의<br></span> <span>반려동물을 등록하고<br></span><span>공유하세요.</span></h4>
                 <div class="content-line"></div>
-                <h5>동물을 보호하고 유실,유기를 방지 할 수 있어요</h5>
+                <h5>동물을 보호하고 유실,유기를 방지 할 수 있어요.</h5>
                 <a class="register__button" href="/">등록하기</a>
         </div>
     </section>
 
     <!-- 신규등록된 동물 -->
-    <section class="newAnimal">
-
-        <h3 class="newAnimal__title">
+    <section class="mainAnimal newAnimal">
+        <h3 class="mainAnimal__title newAnimal__title">
             신규 등록된 동물
         </h3>
-        <ul class="newAnimal__list">
+        <h3 class="mainAnimal__welcome newAnimal__welcome">
+            새로 오신것을 환영합니다!
+        </h3>
+        <ul class="mainAnimal__list newAnimal__list">
             <li class="newAnimal__list__item">
                 <div class="image-area">
                     <img src="images/coco.jpg" alt="">
                 </div>
-                <div class="content">
+                <div class="newAnimal__content">
                     <div class="content__bedge-area">
+                        <p class="content__badge animal__country">
+                            서울/중구
+                        </p>
                         <div class="content__badge animal__type">
                             토이푸들
-                        </div>
-                        <div class="content__badge animal__country">
-                            서울/중구
                         </div>
                         <div class="content__badge animal__name">
                             코코
@@ -87,13 +89,13 @@
                 <div class="image-area">
                     <img src="images/coco.jpg" alt="">
                 </div>
-                <div class="content">
+                <div class="newAnimal__content">
                     <div class="content__bedge-area">
+                        <p class="content__badge animal__country">
+                            서울/중구
+                        </p>
                         <div class="content__badge animal__type">
                             토이푸들
-                        </div>
-                        <div class="content__badge animal__country">
-                            서울/중구
                         </div>
                         <div class="content__badge animal__name">
                             코코
@@ -105,13 +107,13 @@
                 <div class="image-area">
                     <img src="images/coco.jpg" alt="">
                 </div>
-                <div class="content">
+                <div class="newAnimal__content">
                     <div class="content__bedge-area">
+                        <p class="content__badge animal__country">
+                            서울/중구
+                        </p>
                         <div class="content__badge animal__type">
                             토이푸들
-                        </div>
-                        <div class="content__badge animal__country">
-                            서울/중구
                         </div>
                         <div class="content__badge animal__name">
                             코코
@@ -123,13 +125,13 @@
                 <div class="image-area">
                     <img src="images/coco.jpg" alt="">
                 </div>
-                <div class="content">
+                <div class="newAnimal__content">
                     <div class="content__bedge-area">
+                        <p class="content__badge animal__country">
+                            서울/중구
+                        </p>
                         <div class="content__badge animal__type">
                             토이푸들
-                        </div>
-                        <div class="content__badge animal__country">
-                            서울/중구
                         </div>
                         <div class="content__badge animal__name">
                             코코
@@ -141,15 +143,30 @@
     </section>
 
     <!-- 잃어버린 동물 -->
-    <section class="lostAnimal">
-        <h3 class="lostAnimal__title">
+    <section class="mainAnimal lostAnimal">
+        <h3 class="mainAnimal__title lostAnimal__title">
             최근 잃어버린 동물
         </h3>
-        <ul class="lostAnimal__list">
-            <li class="lostAnimal__list__item">1</li>
-            <li class="lostAnimal__list__item">2</li>
-            <li class="lostAnimal__list__item">3</li>
-            <li class="lostAnimal__list__item">4</li>
+        <h3 class="mainAnimal__welcome lostAnimal__welcome">
+            함께 찾아주세요.
+        </h3>
+        <ul class="mainAnimal__list lostAnimal__list">
+            <li class="lostAnimal__list__item">
+                <div class="image-area">
+                    <img src="images/dmani.jpg" alt="">
+                </div>
+                <div class="lostAnimal__content">
+                   
+                </div>
+            </li>
+            <li class="lostAnimal__list__item">
+                <div class="image-area">
+                    <img src="images/dmani.jpg" alt="">
+                </div>
+                <div class="lostAnimal__content">
+                    
+                </div>
+            </li>
         </ul>
     </section>
 
