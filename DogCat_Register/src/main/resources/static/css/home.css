@@ -90,6 +90,9 @@ ul {
   color: var(--color-white);
 }
 
+.navbar__menu__item:hover > a {
+  color: var(--color-blue);
+}
 /* hero container */
 .hero__container {
   width: 100%;
@@ -174,7 +177,7 @@ ul {
 }
 .mainAnimal__welcome {
   font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   margin-left: 0.3rem;
 }
 .mainAnimal__list {
@@ -294,4 +297,9 @@ ul {
 
 .lostAnimal__content > .content-right > p:last-child {
   font-size: 0.8rem;
+}
+
+/* Notice */
+.notice__title {
+  margin-bottom: 1rem;
 }
