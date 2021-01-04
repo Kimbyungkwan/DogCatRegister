@@ -9,6 +9,7 @@
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<script defer src="js/home.js"></script>
 <title>Dog & Cat Register</title>
 </head>
 <body>
@@ -229,7 +230,6 @@
         <!--  heightx1 -> 15rem / 
               heightx2 -> 30rem -->
         <div class="notice__container">
-
             <div class="notice-card-left">
                 <div class="notice-card heightx1" style='background-image: url("images/notice3.jpg");'>
                     <div class="notice__content">
@@ -253,7 +253,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
    
