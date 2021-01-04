@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.dcr.dao.IPetDAO">
+<mapper namespace="com.dcr.application.dao.IPetDAO">
 
+	<select id="newPetList" resultType="com.dcr.application.dto.PetDTO">
+		select * from pet ORDER BY pet_num DESC LIMIT 4
+	</select>
 </mapper>

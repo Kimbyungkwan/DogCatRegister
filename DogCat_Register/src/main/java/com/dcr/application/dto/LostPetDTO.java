@@ -1,5 +1,5 @@
 
-package com.dcr.dto;
+package com.dcr.application.dto;
 
 import lombok.Data;
 

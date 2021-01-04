@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -256,5 +257,8 @@
         </div>
     </section>
    
+   <c:forEach items="${newPetlist}" var="dto">
+   		${dto.pet_num}/${dto.pet_name}/${dto.pet_age}/${dto.pet_age}/${dto.pet_status}/${dto.pet_type}/${dto.pet_species}/${dto.pet_admin}/<br>
+   </c:forEach>
 </body>
 </html>
