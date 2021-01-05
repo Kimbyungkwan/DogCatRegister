@@ -13,4 +13,5 @@ public class PetDTO {
 	private String pet_species;
 	private String pet_admin;
 	private String pet_photo;
+	private String pet_location;
 }

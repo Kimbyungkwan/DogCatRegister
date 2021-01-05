@@ -22,7 +22,7 @@ public class MyController {
 		model.addAttribute("newPetlist", pet.newPetList());
 		System.out.println(pet.newPetList());
 		
-		model.addAttribute("lostPetList", lostPet.mainLostPetList());
+		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
 		System.out.println(lostPet.mainLostPetList());
 		
 		return "home";

@@ -10,6 +10,7 @@
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
 <script defer src="js/home.js"></script>
 <title>Dog & Cat Register</title>
 </head>
@@ -48,6 +49,7 @@
                 </li>
             </ul>
         </div>
+        <i class="fas fa-bars menu__toggle"></i>
     </nav>
 
     <!-- 메인이미지박스 -->
@@ -69,78 +71,26 @@
             새로 오신것을 환영합니다!
         </h3>
         <ul class="mainAnimal__list newAnimal__list">
-            <li class="newAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/coco.jpg" alt="">
-                </div>
-                <div class="newAnimal__content">
-                    <div class="content__bedge-area">
-                        <p class="content__badge animal__country">
-                            서울/중구
-                        </p>
-                        <div class="content__badge animal__type">
-                            토이푸들
-                        </div>
-                        <div class="content__badge animal__name">
-                            코코
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="newAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/coco.jpg" alt="">
-                </div>
-                <div class="newAnimal__content">
-                    <div class="content__bedge-area">
-                        <p class="content__badge animal__country">
-                            서울/중구
-                        </p>
-                        <div class="content__badge animal__type">
-                            토이푸들
-                        </div>
-                        <div class="content__badge animal__name">
-                            코코
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="newAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/coco.jpg" alt="">
-                </div>
-                <div class="newAnimal__content">
-                    <div class="content__bedge-area">
-                        <p class="content__badge animal__country">
-                            서울/중구
-                        </p>
-                        <div class="content__badge animal__type">
-                            토이푸들
-                        </div>
-                        <div class="content__badge animal__name">
-                            코코
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="newAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/coco.jpg" alt="">
-                </div>
-                <div class="newAnimal__content">
-                    <div class="content__bedge-area">
-                        <p class="content__badge animal__country">
-                            서울/중구
-                        </p>
-                        <div class="content__badge animal__type">
-                            토이푸들
-                        </div>
-                        <div class="content__badge animal__name">
-                            코코
-                        </div>
-                    </div>
-                </div>
-            </li>
+        	<c:forEach items="${newPetlist}" var="dto">
+   				<li class="newAnimal__list__item">
+	                <div class="image-area">
+	                    <img src="${dto.pet_photo}" alt="${dto.pet_admin}_${dto.pet_name}">
+	                </div>
+	                <div class="newAnimal__content">
+	                    <div class="content__bedge-area">
+	                        <p class="content__badge animal__country">
+	                            ${dto.pet_location}
+	                        </p>
+	                        <div class="content__badge animal__type">
+	                            ${dto.pet_species}
+	                        </div>
+	                        <div class="content__badge animal__name">
+	                            ${dto.pet_name}
+	                        </div>
+	                    </div>
+	                </div>
+            	</li>
+   			</c:forEach>
         </ul>
     </section>
 
@@ -153,74 +103,25 @@
             함께 찾아주세요.
         </h3>
         <ul class="mainAnimal__list lostAnimal__list">
-            <li class="lostAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/dmani.jpg" alt="">
-                </div>
-                <div class="lostAnimal__content">
-                    <div class="content-left">
-                        <p>아무개</p>
-                        <p>수컷</p>
-                        <p>5살</p>
-                        <p>래브라도 리트리버</p>
-                    </div>
-                    <div class="content-right">
-                        <p>서울 용산</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
-                    </div>
-                </div>
-            </li>
-            <li class="lostAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/dmani.jpg" alt="">
-                </div>
-                <div class="lostAnimal__content">
-                    <div class="content-left">
-                        <p>아무개</p>
-                        <p>수컷</p>
-                        <p>5살</p>
-                        <p>래브라도 리트리버</p>
-                    </div>
-                    <div class="content-right">
-                        <p>서울 용산</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
-                    </div>
-                </div>
-            </li>
-            <li class="lostAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/dmani.jpg" alt="">
-                </div>
-                <div class="lostAnimal__content">
-                    <div class="content-left">
-                        <p>아무개</p>
-                        <p>수컷</p>
-                        <p>5살</p>
-                        <p>래브라도 리트리버</p>
-                    </div>
-                    <div class="content-right">
-                        <p>서울 용산</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
-                    </div>
-                </div>
-            </li>
-            <li class="lostAnimal__list__item">
-                <div class="image-area">
-                    <img src="images/dmani.jpg" alt="">
-                </div>
-                <div class="lostAnimal__content">
-                    <div class="content-left">
-                        <p>아무개</p>
-                        <p>수컷</p>
-                        <p>5살</p>
-                        <p>래브라도 리트리버</p>
-                    </div>
-                    <div class="content-right">
-                        <p>서울 용산</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti alias quas aliquid animi delectus </p>
-                    </div>
-                </div>
-            </li>
+        	<c:forEach items="${newLostPetList}" var="dto">
+	            <li class="lostAnimal__list__item">
+	                <div class="image-area">
+	                    <img src="${dto.lost_pet_photo}" alt="${dto.lost_pet_admin}_${dto.lost_pet_name}">
+	                </div>
+	                <div class="lostAnimal__content">
+	                    <div class="content-left">
+	                        <p>${dto.lost_pet_name}</p>
+	                        <p>${dto.lost_pet_sex}</p>
+	                        <p>${dto.lost_pet_age}살</p>
+	                        <p>${dto.lost_pet_species}</p>
+	                    </div>
+	                    <div class="content-right">
+	                        <p>${dto.lost_pet_location}</p>
+	                        <p>${dto.lost_pet_content}</p>
+	                    </div>
+	                </div>
+	            </li>
+		   </c:forEach>
         </ul>
     </section>
 
@@ -257,8 +158,5 @@
         </div>
     </section>
    
-   <c:forEach items="${newPetlist}" var="dto">
-   		${dto.pet_num}/${dto.pet_name}/${dto.pet_age}/${dto.pet_age}/${dto.pet_status}/${dto.pet_type}/${dto.pet_species}/${dto.pet_admin}/<br>
-   </c:forEach>
 </body>
 </html>

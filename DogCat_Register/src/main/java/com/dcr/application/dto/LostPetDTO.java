@@ -15,4 +15,5 @@ public class LostPetDTO {
 	private String lost_pet_content;
 	private String lost_pet_photo;
 	private String lost_pet_location;
+	private String lost_pet_sex;
 }

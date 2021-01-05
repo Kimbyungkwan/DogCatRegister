@@ -65,6 +65,7 @@ ul {
 
 .navbar__menu {
   display: flex;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar__menu > .navbar__menu__item {
@@ -93,6 +94,17 @@ ul {
 .navbar__menu__item:hover > a {
   color: var(--color-blue);
 }
+
+#navbar > i {
+  font-size: 1.8rem;
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  z-index: 2;
+}
+
 /* hero container */
 .hero__container {
   width: 100%;
@@ -360,4 +372,79 @@ ul {
 
 .heightx2 {
   height: 30rem;
+}
+
+/* media query */
+@media screen and (max-width: 1000px) {
+  .newAnimal__list__item {
+    width: calc(50% - 0.5rem);
+  }
+  .newAnimal__list__item:not(:last-child) {
+    margin-right: 0;
+  }
+  .newAnimal__list__item:nth-child(odd) {
+    margin-right: 1rem;
+  }
+}
+
+@media all and (max-width: 700px) {
+  /* lostAnimal */
+  .lostAnimal__list__item {
+    width: 100%;
+  }
+
+  .lostAnimal__list__item:nth-child(odd) {
+    margin-right: 0;
+  }
+
+  /* notice */
+  .notice__container {
+    flex-direction: column;
+  }
+  .notice-card-left,
+  .notice-card-right {
+    width: 100%;
+  }
+  .notice-card {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media all and (max-width: 650px) {
+  /* navbar */
+  .navbar__container {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .navbar__logo {
+    background-color: white;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__menu {
+    transform: translateY(-100%);
+    background-color: var(--color-white);
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    align-items: center;
+    padding: 0;
+    padding-bottom: 0.8rem;
+    z-index: 0;
+  }
+  .navbar__menu > .navbar__menu__item {
+    margin: 0.1rem 0;
+  }
+  #navbar > i {
+    display: block;
+  }
+
+  .navbar__showing {
+    transform: translateY(0);
+  }
 }
