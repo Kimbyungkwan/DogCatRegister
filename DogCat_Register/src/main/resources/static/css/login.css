@@ -1,0 +1,16 @@
+.login__container {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 9rem;
+}
+
+.login__top-box,
+.login__bottom-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
