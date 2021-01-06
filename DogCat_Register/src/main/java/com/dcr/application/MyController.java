@@ -62,7 +62,6 @@ public class MyController {
 				model.addAttribute("errors_pw", result.getFieldError("user_password")
 														.getDefaultMessage());
 			}
-
 			page = "login";
 		}
 		
@@ -72,9 +71,9 @@ public class MyController {
 			System.out.println("======");
 			if(user.userCheck(loginCommand).getUser_id().equals(loginCommand.getUser_id()) &&
 				user.userCheck(loginCommand).getUser_password().equals(loginCommand.getUser_password())) {
-				System.out.println("asdasdasdasdasdasd");
 			}
 			session.setAttribute("user", user.userCheck(loginCommand));
+			System.out.println("user Login");
 			page="redirect:/home";
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -83,6 +82,17 @@ public class MyController {
 		}
 		
 		return page;
+	}
+	
+	
+	@RequestMapping("member/logout")
+	public String logout(HttpSession request) {
+		if(request.getAttribute("user") != null) {
+			System.out.println(request.getAttribute("user"));
+			System.out.println("session user delete");
+			request.invalidate();
+		}
+		return"redirect:/home";
 	}
 	
 	@RequestMapping("/animal")
