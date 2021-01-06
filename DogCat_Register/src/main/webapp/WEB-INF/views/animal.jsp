@@ -44,11 +44,23 @@
                         등록하기
                     </a>
                 </li>
-                <li class="navbar__menu__item login">
-                    <a href="member/login">
-                        로그인
-                    </a> 
-                </li>
+                <c:choose>
+                    <c:when test="${not empty sessionScope.user}">
+                        <li class="navbar__menu__item logout">
+                            <a href="member/logout">
+                                로그아웃
+                            </a> 
+                        </li>
+                    </c:when>
+                    <c:otherwise>  
+                        <li class="navbar__menu__item login">
+                            <a href="member/login">
+                                로그인
+                            </a> 
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
             </ul>
         </div>
         <i class="fas fa-bars menu__toggle"></i>

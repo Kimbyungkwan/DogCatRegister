@@ -1,3 +1,5 @@
+/* login */
+
 .login__container {
   max-width: 1000px;
   display: flex;
@@ -43,12 +45,6 @@
   padding: 0.5rem 0.2rem;
 }
 
-.input__notMatch {
-  font-size: 0.8rem;
-  color: red;
-  padding: 0 0.5rem;
-}
-
 .login__form > .form__button {
   width: 100%;
   background-color: white;
@@ -76,4 +72,136 @@
 }
 .login__form > .form__button:focus {
   outline: none;
+}
+
+/* warning */
+.input__notMatch {
+  font-size: 0.8rem;
+  color: red;
+  padding: 0 0.5rem;
+}
+/* sign up */
+
+.signUp__container {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 6.5rem 3rem 0 3rem;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+.signUp__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signUp__form {
+  max-width: 300px;
+  font-size: 1.2rem;
+  border: none;
+  outline-style: none;
+  padding: 0.5rem 0.2rem;
+}
+
+.signUp__form > * {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.signUp__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signUp__form > input,
+.signUp__form > button,
+.signUp__form > p {
+  margin-bottom: 0.5rem;
+}
+
+.signUp__form input {
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  outline-style: none;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1px solid black;
+}
+
+.signUp__form > .form__button {
+  width: 100%;
+  background-color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.signUp__form > .form__button {
+  border: 1px solid var(--color-blue);
+}
+.signUp__form > .form__button {
+  color: var(--color-blue);
+}
+
+.signUp__form > .form__button:hover {
+  background-color: var(--color-blue);
+}
+.signUp__form > .form__button:hover {
+  color: var(--color-white);
+}
+.signUp__form > .form__button:active {
+  outline: none;
+}
+.signUp__form > .form__button:focus {
+  outline: none;
+}
+
+.signUp__box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signUp__box > input {
+  width: 80%;
+}
+.signUp__box > button {
+  width: 15%;
+  padding: 0.5rem 0.2rem;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.signUp__box > button:active {
+  outline: none;
+  transform: scale(1.05);
+}
+.signUp__box > button:focus {
+  outline: none;
+}
+/* not use */
+.signUp__form-email,
+.signUp__form-phone {
+  filter: blur(3px);
+}
+
+.singUp__showing {
+  transform: translateX(0);
+}
+
+.sign__message {
+  margin: 0.25rem 0 0.25rem 0;
+}
+.sign__message-ok {
+  color: var(--color-blue);
 }

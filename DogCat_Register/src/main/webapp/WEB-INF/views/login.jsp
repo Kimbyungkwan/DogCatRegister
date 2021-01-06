@@ -44,11 +44,23 @@
                         등록하기
                     </a>
                 </li>
-                <li class="navbar__menu__item login">
-                    <a href="login">
-                        로그인
-                    </a> 
-                </li>
+                <c:choose>
+                    <c:when test="${not empty sessionScope.user}">
+                        <li class="navbar__menu__item logout">
+                            <a href="member/logout">
+                                로그아웃
+                            </a> 
+                        </li>
+                    </c:when>
+                    <c:otherwise>  
+                        <li class="navbar__menu__item login">
+                            <a href="login">
+                                로그인
+                            </a> 
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
             </ul>
         </div>
         <i class="fas fa-bars menu__toggle"></i>
@@ -64,10 +76,36 @@
                 <input type="password" name="user_password" value="${user_pw}"placeholder="PASSWORD" class="form__login-pw">   
                 <p class="input__notMatch">${notMatch }</p>
                 <button type="submit" class="form__button form__login-button">로그인</button>
-                <button type="button" class="form__button">회원가입</button>
+                <button type="button" class="form__button form__signUp__button ">회원가입</button>
             </form>
         </div>
     </section>
-   
+    <!-- sign up -->
+    <section class="signUp__container">
+        <h3 class="signUp__title">
+            회원가입
+        </h3>
+        <form class="signUp__form" method="post" action="/member/signup">
+            <div class="signUp__box">
+                <input type="text" name="sign_id" value="${sign_id}" placeholder="ID" class="signUp__form-id">
+                <button type="button" class="signUp__id-check" >확인</button>
+            </div>
+            <p class="input__notMatch sign__message-id" style="margin: 0.25rem 0 0.25rem 0;"></p>
+            <input type="password" name="sign_password" value="${sign_pw}"placeholder="PASSWORD" class="signUp__form-pw">  
+
+            <input type="password" name="sign_password" value="${sign_pw}"placeholder="PASSWORD CHECK" class="signUp__form-pw">   
+            
+            <p class="input__notMatch sign__message-pw" style="margin: 0.25rem 0 0.25rem 0;"></p>
+
+            <input type="text" name="sign_password" value="${sign_nickname}"placeholder="NICKNAME" class="signUp__form-nickname">
+
+            <input type="email" disabled  name="sign_email" placeholder="EMAIL"  value="${sign_email}" class="signUp__form-email">
+
+            <input type="text" disabled  name="sign_password" placeholder="PHONE"   value="${sign_phone}" class="signUp__form-phone">
+            
+            <button type="button" class="form__button signUp__button">회원가입</button>
+            <button type="button" class="form__button signUp__button__cancle ">취소</button>
+        </form>
+    </section>
 </body>
 </html>

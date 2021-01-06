@@ -4,6 +4,7 @@
   --color-white: #ffffff;
   --color-light-white: #eeeeee;
   --color-blue: #0071e2;
+  --color-red: #ff0000;
 }
 
 /* Global */
@@ -77,25 +78,39 @@ ul {
   border-radius: 5px;
   cursor: pointer;
 }
+/* login button */
 .navbar__menu > .navbar__menu__item.login {
   border: 1px solid var(--color-blue);
 }
-
 .navbar__menu > .navbar__menu__item.login a {
   color: var(--color-blue);
 }
-
 .navbar__menu > .navbar__menu__item.login:hover {
   background-color: var(--color-blue);
 }
 .navbar__menu > .navbar__menu__item.login:hover a {
   color: var(--color-white);
 }
-
-.navbar__menu__item:hover > a {
+.navbar__menu__item.login:hover > a {
   color: var(--color-blue);
 }
 
+/* login button */
+.navbar__menu > .navbar__menu__item.logout {
+  border: 1px solid var(--color-red);
+}
+.navbar__menu > .navbar__menu__item.logout a {
+  color: var(--color-red);
+}
+.navbar__menu > .navbar__menu__item.logout:hover {
+  background-color: var(--color-red);
+}
+.navbar__menu > .navbar__menu__item.logout:hover a {
+  color: var(--color-white);
+}
+.navbar__menu__item.logout:hover > a {
+  color: var(--color-red);
+}
 #navbar > i {
   font-size: 1.8rem;
   display: none;

@@ -1,5 +1,7 @@
 package com.dcr.application;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -9,9 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dcr.application.dto.SignUpFormDTO;
 import com.dcr.application.service.ILostPetService;
 import com.dcr.application.service.IPetService;
 import com.dcr.application.service.IUserService;
@@ -86,13 +91,29 @@ public class MyController {
 	
 	
 	@RequestMapping("member/logout")
-	public String logout(HttpSession request) {
-		if(request.getAttribute("user") != null) {
-			System.out.println(request.getAttribute("user"));
+	public String logout(HttpSession session) {
+//		session에 데이터 user데이터 확인후 존재하면 초기화 
+//		메인페이지로 이동.
+		if(session.getAttribute("user") != null) {
+			System.out.println(session.getAttribute("user"));
 			System.out.println("session user delete");
-			request.invalidate();
+			session.invalidate();
 		}
 		return"redirect:/home";
+	}
+	
+	@ResponseBody
+	@RequestMapping( value="member/signup/idcheck", method=RequestMethod.POST)
+	public HashMap<String, Object> idcheck(@RequestBody String req) {
+		
+		System.out.println(req);
+		System.out.println("====");
+		
+		HashMap<String,Object> map = new HashMap<String, Object>();
+		map.put("message", "사용가능한 아이디입니다.");
+		System.out.println("====");
+		System.out.println(map);
+		return map;
 	}
 	
 	@RequestMapping("/animal")
