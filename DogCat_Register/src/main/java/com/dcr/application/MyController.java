@@ -33,10 +33,7 @@ public class MyController {
 	@RequestMapping(value = {"/","/home"})
 	public String root(Model model) throws Exception {
 		model.addAttribute("newPetlist", pet.newPetList());
-		System.out.println(pet.newPetList());
-
 		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
-		System.out.println(lostPet.mainLostPetList());
 
 		return "home";
 	}
@@ -84,11 +81,7 @@ public class MyController {
 			model.addAttribute("notMatch","아이디나 패스워드가 잘못됐습니다.");
 			page = "login";
 		}
-		System.out.println("======");
-		System.out.println(user.userCheck(loginCommand));
-		System.out.println("======");
-		System.out.println(model);
-			
+		
 		return page;
 	}
 	

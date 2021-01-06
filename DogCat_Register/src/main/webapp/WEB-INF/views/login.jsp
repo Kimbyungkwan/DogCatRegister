@@ -59,18 +59,15 @@
             <img src="../images/login/login_left-1.png" alt="login">
         </div>
         <div class="login__bottom-box">
-            <form method="post" action="/member/login">
-                <input type="text" name="user_id" value="${user_id}">
-                <input type="password" name="user_password" value="${user_pw}">
-                <button type="submit" >전송</button>
+            <form class="login__form" method="post" action="/member/login">
+                <input type="text" name="user_id" value="${user_id}" placeholder="ID" class="form__login-id">
+                <input type="password" name="user_password" value="${user_pw}"placeholder="PASSWORD" class="form__login-pw">   
+                <p class="input__notMatch">${notMatch }</p>
+                <button type="submit" class="form__button form__login-button">로그인</button>
+                <button type="button" class="form__button">회원가입</button>
             </form>
         </div>
     </section>
    
-   
-   ${errors_id}
-   ${errors_pw}
-   ${user }
-   ${notMatch }
 </body>
 </html>

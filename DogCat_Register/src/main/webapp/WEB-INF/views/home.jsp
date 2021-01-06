@@ -160,5 +160,6 @@
             </div>
         </div>
     </section>
+   ${user }
 </body>
 </html>
