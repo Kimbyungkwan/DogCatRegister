@@ -110,12 +110,15 @@ public class MyController {
 	@RequestMapping( value="member/signup", method=RequestMethod.POST)
 	public HashMap<String, Object> signup(@RequestBody UserDTO dto, UserNumCreate UNC) {
 		HashMap<String,Object> map = new HashMap<String, Object>();
-		map.put("message", "수신양호.");
 		
-		
-		System.out.println(dto);
 		dto.setUser_Num(UNC.createNum());
+		
 		System.out.println(dto);
+		if(user.signUp(dto) == 1) {
+			map.put("message", "가입 완료");
+		}else {
+			map.put("message", "가입 실패");
+		}
 		return map;
 	}
 	
@@ -124,6 +127,7 @@ public class MyController {
 	public HashMap<String, Object> idcheck(@RequestBody String req) {
 
 		HashMap<String,Object> map = new HashMap<String, Object>();
+
 		if(user.signUpIdCheck(req) == null) {
 			map.put("message", "사용가능한 아이디입니다.");
 		}else {

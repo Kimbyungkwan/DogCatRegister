@@ -104,7 +104,7 @@
 
             <input type="text" disabled  name="sign__phone" placeholder="PHONE"   value="${sign__phone}" maxlength="20" class="signUp__form-phone"data-sql-col="user_phone">
             
-            <button type="button" class="form__button signUp__button signUp__button__POST">회원가입 </button>
+            <button type="button"  class="form__button signUp__button signUp__button__POST">회원가입 </button>
             <button type="button" class="form__button signUp__button__cancle ">취소</button>
             <div class="spinner__box">
                 <div class="spinner"></div>

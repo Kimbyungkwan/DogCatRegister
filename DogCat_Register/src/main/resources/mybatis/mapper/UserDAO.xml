@@ -9,6 +9,13 @@
 	</select>
 	
 	<select id="signUpIdCheck" resultType="com.dcr.application.dto.UserDTO">
-		SELECT * FROM user WHERE user_id = #{param1}; 
+		SELECT * FROM user WHERE user_id = #{param1} LIMIT 1; 
 	</select>
+	
+	<insert id="signUp" parameterType="com.dcr.application.dto.UserDTO">
+	INSERT INTO user(user_Num,user_id,user_password,user_nickname)
+	VALUES(
+		#{user_Num},#{user_id},#{user_password},#{user_nickname}
+	)
+	</insert>
 </mapper>

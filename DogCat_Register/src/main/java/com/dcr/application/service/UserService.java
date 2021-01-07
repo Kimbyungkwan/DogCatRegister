@@ -1,7 +1,5 @@
 package com.dcr.application.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +28,12 @@ public class UserService implements IUserService {
 
 	@Override
 	public int signUp(UserDTO dto) {
-		dao.signUp(dto);
-		return 0;
+		if(dao.signUp(dto) == 1) {
+			return 1;
+		}else {
+
+			return 0;
+		}
 	}
 
 	
