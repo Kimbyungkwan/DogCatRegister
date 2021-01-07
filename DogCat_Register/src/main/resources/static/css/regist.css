@@ -1,0 +1,47 @@
+.container {
+  max-width: 1000px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  margin-top: 4.5rem;
+}
+
+.tab__box {
+  width: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.tab__box .tab {
+  width: 50%;
+  font-size: 1rem;
+  text-align: center;
+  display: inline-block;
+  background-color: #eee;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.tab__box .tab__active {
+  background-color: var(--color-blue);
+  color: #fff;
+}
+
+/* regist box */
+.regist__form {
+  display: flex;
+}
+.regist__img {
+  width: 50%;
+}
+
+.ad__box {
+  max-width: 1000px;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: black;
+}

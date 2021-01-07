@@ -1,17 +1,17 @@
 package com.dcr.application;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +25,8 @@ import com.dcr.application.service.IPetService;
 import com.dcr.application.service.IUserService;
 import com.dcr.application.util.LoginCommand;
 import com.dcr.application.util.UserNumCreate;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
 public class MyController {
@@ -153,4 +155,40 @@ public class MyController {
 		return "regist";
 	}
 
+	@RequestMapping("/uploadOk")
+	public @ResponseBody String uploadOk(HttpServletRequest request) {
+		int size = 1024 * 1024 * 5; // 5M 제한
+		
+		String file = "";
+		String oriFile = "";
+		JSONObject obj = new JSONObject();
+		try {
+			String path = ResourceUtils.getFile("classpath:static/upload/images/").toPath().toString();
+			
+			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8",
+								new DefaultFileRenamePolicy());
+			System.out.println("1111111");
+			Enumeration files = multi.getFileNames();
+			String str = (String)files.nextElement();
+			
+			file = multi.getFilesystemName(str);
+			oriFile = multi.getOriginalFileName(str);
+			
+			obj.put("success", new Integer(1));
+			obj.put("desc","업로드 성공");
+			obj.put("src","/upload/images/"+file);
+
+			System.out.println(multi);
+			System.out.println("=====");
+			System.out.println(request);
+			System.out.println("=====");
+		}catch(Exception e) {
+			e.printStackTrace();
+			obj.put("success", new Integer(0));
+			obj.put("desc", "업로드 실패");
+		}
+		return obj.toJSONString();
+	}
+	
+	
 }

@@ -66,6 +66,27 @@
         <i class="fas fa-bars menu__toggle"></i>
     </nav>
 
-   
+   <section class="container">
+       <ul class="tab__box">
+            <li class="tab tab__active">
+                동물 등록하기
+            </li>
+
+            <li class="tab">
+                동물 관리하기
+            </li>
+       </ul>
+       <section class="regist__form">
+            <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
+            <form action="uploadOk" method="post" enctype="multipart/form-data">
+                파일 : <input type="file" name="filename" >
+                <input type="submit" value="File upload">
+            </form>
+       </section>
+   </section>
+
+   <section class="ad__box">
+       
+   </section>
 </body>
 </html>
