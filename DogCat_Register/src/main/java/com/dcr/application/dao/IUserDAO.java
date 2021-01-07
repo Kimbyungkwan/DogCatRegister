@@ -11,4 +11,6 @@ import com.dcr.application.util.LoginCommand;
 public interface IUserDAO {
 
 	public UserDTO userCheck(String user_id,String user_pw);
+	public int signUp(UserDTO dto);
+	public UserDTO signUpIdCheck(String user_id);
 }

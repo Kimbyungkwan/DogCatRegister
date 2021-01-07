@@ -1,6 +1,9 @@
 package com.dcr.application;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dcr.application.dto.SignUpFormDTO;
+import com.dcr.application.dto.UserDTO;
 import com.dcr.application.service.ILostPetService;
 import com.dcr.application.service.IPetService;
 import com.dcr.application.service.IUserService;
 import com.dcr.application.util.LoginCommand;
+import com.dcr.application.util.UserNumCreate;
 
 @Controller
 public class MyController {
@@ -103,16 +107,30 @@ public class MyController {
 	}
 	
 	@ResponseBody
+	@RequestMapping( value="member/signup", method=RequestMethod.POST)
+	public HashMap<String, Object> signup(@RequestBody UserDTO dto, UserNumCreate UNC) {
+		HashMap<String,Object> map = new HashMap<String, Object>();
+		map.put("message", "수신양호.");
+		
+		
+		System.out.println(dto);
+		dto.setUser_Num(UNC.createNum());
+		System.out.println(dto);
+		return map;
+	}
+	
+	@ResponseBody
 	@RequestMapping( value="member/signup/idcheck", method=RequestMethod.POST)
 	public HashMap<String, Object> idcheck(@RequestBody String req) {
-		
-		System.out.println(req);
-		System.out.println("====");
-		
+
 		HashMap<String,Object> map = new HashMap<String, Object>();
-		map.put("message", "사용가능한 아이디입니다.");
-		System.out.println("====");
-		System.out.println(map);
+		if(user.signUpIdCheck(req) == null) {
+			map.put("message", "사용가능한 아이디입니다.");
+		}else {
+			map.put("overlap", "중복된 아이디입니다.");
+			map.put("message", "중복된 아이디입니다.");
+		}
+		System.out.println("아이디 체크 완료");
 		return map;
 	}
 	

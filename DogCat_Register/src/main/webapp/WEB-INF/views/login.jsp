@@ -72,8 +72,8 @@
         </div>
         <div class="login__bottom-box">
             <form class="login__form" method="post" action="/member/login">
-                <input type="text" name="user_id" value="${user_id}" placeholder="ID" class="form__login-id">
-                <input type="password" name="user_password" value="${user_pw}"placeholder="PASSWORD" class="form__login-pw">   
+                <input type="text" name="user_id" value="${user_id}" placeholder="ID" class="form__login-id" maxlength="20">
+                <input type="password" name="user_password" value="${user_pw}"placeholder="PASSWORD" maxlength="20" class="form__login-pw">   
                 <p class="input__notMatch">${notMatch }</p>
                 <button type="submit" class="form__button form__login-button">로그인</button>
                 <button type="button" class="form__button form__signUp__button ">회원가입</button>
@@ -87,24 +87,28 @@
         </h3>
         <form class="signUp__form" method="post" action="/member/signup">
             <div class="signUp__box">
-                <input type="text" name="sign_id" value="${sign_id}" placeholder="ID" class="signUp__form-id">
+                <input type="text" name="sign__id" value="${sign__id}" placeholder="ID" class="signUp__form-id"
+                maxlength="20" data-sql-col="user_id">
                 <button type="button" class="signUp__id-check" >확인</button>
             </div>
             <p class="input__notMatch sign__message-id" style="margin: 0.25rem 0 0.25rem 0;"></p>
-            <input type="password" name="sign_password" value="${sign_pw}"placeholder="PASSWORD" class="signUp__form-pw">  
+            <input type="password" name="sign__password" value="${sign__pw}"placeholder="PASSWORD" maxlength="20" class="signUp__form-pw  sign__password__match-target" data-sql-col="user_password">  
 
-            <input type="password" name="sign_password" value="${sign_pw}"placeholder="PASSWORD CHECK" class="signUp__form-pw">   
+            <input type="password" name="sign__password" value="${sign__pw}"placeholder="PASSWORD CHECK" maxlength="20" class="signUp__form-pw  sign__password__match">   
             
             <p class="input__notMatch sign__message-pw" style="margin: 0.25rem 0 0.25rem 0;"></p>
 
-            <input type="text" name="sign_password" value="${sign_nickname}"placeholder="NICKNAME" class="signUp__form-nickname">
+            <input type="text" name="sign__nickname" value="${sign__nickname}"placeholder="NICKNAME" maxlength="20" class="signUp__form-nickname" data-sql-col="user_nickname">
 
-            <input type="email" disabled  name="sign_email" placeholder="EMAIL"  value="${sign_email}" class="signUp__form-email">
+            <input type="email" disabled  name="sign__email" placeholder="EMAIL"  value="${sign__email}" maxlength="100" class="signUp__form-email" data-sql-col="user_email">
 
-            <input type="text" disabled  name="sign_password" placeholder="PHONE"   value="${sign_phone}" class="signUp__form-phone">
+            <input type="text" disabled  name="sign__phone" placeholder="PHONE"   value="${sign__phone}" maxlength="20" class="signUp__form-phone"data-sql-col="user_phone">
             
-            <button type="button" class="form__button signUp__button">회원가입</button>
+            <button type="button" class="form__button signUp__button signUp__button__POST">회원가입 </button>
             <button type="button" class="form__button signUp__button__cancle ">취소</button>
+            <div class="spinner__box">
+                <div class="spinner"></div>
+            </div>
         </form>
     </section>
 </body>

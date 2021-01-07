@@ -21,6 +21,19 @@ public class UserService implements IUserService {
 		return dao.userCheck(loginCommand.getUser_id(),loginCommand.getUser_password());
 	}
 
+	@Override
+	public UserDTO signUpIdCheck(String user_id) {
+		// TODO Auto-generated method stub
+		
+		return dao.signUpIdCheck(user_id);
+	}
+
+	@Override
+	public int signUp(UserDTO dto) {
+		dao.signUp(dto);
+		return 0;
+	}
+
 	
 	
 }

@@ -7,4 +7,8 @@
 	<select id="userCheck" resultType="com.dcr.application.dto.UserDTO">
 		SELECT * FROM user WHERE user_id = #{param1} and user_password = #{param2}; 
 	</select>
+	
+	<select id="signUpIdCheck" resultType="com.dcr.application.dto.UserDTO">
+		SELECT * FROM user WHERE user_id = #{param1}; 
+	</select>
 </mapper>
