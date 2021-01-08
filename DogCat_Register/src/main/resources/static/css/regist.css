@@ -2,7 +2,7 @@
   max-width: 1000px;
   border: 1px solid #ccc;
   margin: 0 auto;
-  margin-top: 4.5rem;
+  margin-top: 6.5rem;
 }
 
 .tab__box {
@@ -30,9 +30,122 @@
 /* regist box */
 .regist__form {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.regist__img {
-  width: 50%;
+.img__box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+.img__box > img {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.img__box label {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.2rem;
+  box-sizing: content-box;
+}
+.file__icon {
+  width: 100%;
+  height: 100%;
+  font-size: 2.2rem;
+  color: var(--color-blue);
+}
+.img__box input[type='file'] {
+  display: block;
+}
+
+.regist__form > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* upload form */
+.upload__form {
+  width: 300px;
+  margin-bottom: 0.5rem;
+}
+.upload__form > input {
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px solid black;
+  outline-style: none;
+  padding: 0.5rem 0.2rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.upload__form > input::placeholder {
+  opacity: 0.5;
+  font-size: 1rem;
+}
+.radio__box {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+.radio__box label {
+  font-size: 1.2rem;
+}
+.user_Num,
+.pet__photo {
+  display: none;
+}
+
+.form__submit {
+  margin-bottom: 1rem;
+}
+
+.form__submit {
+  width: 5rem;
+  background-color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form__submit {
+  border: 1px solid var(--color-blue);
+}
+.form__submit {
+  color: var(--color-blue);
+}
+
+.form__submit:hover {
+  background-color: var(--color-blue);
+}
+.form__submit:hover {
+  color: var(--color-white);
+}
+.form__submit:active {
+  outline: none;
+}
+.form__submit:focus {
+  outline: none;
 }
 
 .ad__box {

@@ -65,13 +65,13 @@ public class MyController {
 				System.out.println("1:" + result.getFieldError("user_id")
 												.getDefaultMessage());
 				model.addAttribute("errors_id", result.getFieldError("user_id")
-														.getDefaultMessage());
+												.getDefaultMessage());
 			}
 			if(result.getFieldError("user_password") != null) {
 				System.out.println("2:" + result.getFieldError("user_password")
 												.getDefaultMessage());
 				model.addAttribute("errors_pw", result.getFieldError("user_password")
-														.getDefaultMessage());
+													.getDefaultMessage());
 			}
 			page = "login";
 		}
@@ -155,19 +155,20 @@ public class MyController {
 		return "regist";
 	}
 
-	@RequestMapping("/uploadOk")
-	public @ResponseBody String uploadOk(HttpServletRequest request) {
-		int size = 1024 * 1024 * 5; // 5M 제한
+	@ResponseBody 
+	@RequestMapping("/regist/fileUpload")
+	public String fileUpload(HttpServletRequest request) {
 		
+		JSONObject obj = new JSONObject();
+
+		int size = 1024 * 1024 * 5; // 5M 제한
 		String file = "";
 		String oriFile = "";
-		JSONObject obj = new JSONObject();
 		try {
 			String path = ResourceUtils.getFile("classpath:static/upload/images/").toPath().toString();
-			
+			System.out.println(path);
 			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8",
-								new DefaultFileRenamePolicy());
-			System.out.println("1111111");
+					new DefaultFileRenamePolicy());
 			Enumeration files = multi.getFileNames();
 			String str = (String)files.nextElement();
 			
@@ -178,15 +179,16 @@ public class MyController {
 			obj.put("desc","업로드 성공");
 			obj.put("src","/upload/images/"+file);
 
-			System.out.println(multi);
+
 			System.out.println("=====");
-			System.out.println(request);
+			System.out.println("업로드 성공");
 			System.out.println("=====");
 		}catch(Exception e) {
 			e.printStackTrace();
 			obj.put("success", new Integer(0));
 			obj.put("desc", "업로드 실패");
 		}
+
 		return obj.toJSONString();
 	}
 	

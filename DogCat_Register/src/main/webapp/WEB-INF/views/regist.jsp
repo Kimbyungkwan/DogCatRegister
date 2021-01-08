@@ -77,16 +77,34 @@
             </li>
        </ul>
        <section class="regist__form">
-            <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
-            <form action="uploadOk" method="post" enctype="multipart/form-data">
-                파일 : <input type="file" name="filename" >
-                <input type="submit" value="File upload">
+            <div class="img__box">
+                <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
+                <label for="file__form">
+                    <i class="file__icon far fa-arrow-alt-circle-up"></i>
+                </label>
+                <input id="file__form" class="file__form" type="file" name="filename" accept=".jpg,.jpeg,.png" >
+            </div>
+            
+            <form class="upload__form" action="uploadOk" method="post">
+                <input type="text" name="pet_admin" value="${user.user_Num}" class="user_Num" >
+                <input type="text" name="pet_name" placeholder="동물 이름">
+                <input type="text" name="pet_age"placeholder="동물 나이">
+                <div class="radio__box">
+                    <label><input type="radio" name="fruit" value="강아지">강아지</label>
+                    <label><input type="radio" name="fruit" value="고양이">고양이</label>
+                </div>
+                <input type="text" name="pet_species" placeholder="품종">
+                <input class="pet__photo" type="text" name="pet_photo">
+                <input type="text" name="pet_location"placeholder="거주 지역 ex)서울/중구">
             </form>
+            <button class="form__submit">등록</button>
        </section>
+       ${user}
+       ${user.user_Num}
    </section>
 
-   <section class="ad__box">
+   <!-- <section class="ad__box">
        
-   </section>
+   </section> -->
 </body>
 </html>
