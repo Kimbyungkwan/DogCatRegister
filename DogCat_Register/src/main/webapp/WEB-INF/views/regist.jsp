@@ -65,42 +65,40 @@
         </div>
         <i class="fas fa-bars menu__toggle"></i>
     </nav>
-
+    
    <section class="container">
        <ul class="tab__box">
-            <li class="tab tab__active">
-                동물 등록하기
-            </li>
-
-            <li class="tab">
-                동물 관리하기
-            </li>
+            <li class="tab tab__active">동물 등록하기</li>
+            <li class="tab">동물 관리하기</li>
        </ul>
-       <section class="regist__form">
+       <section class="regist__form" data-tab="동물 등록하기">
             <div class="img__box">
                 <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
                 <label for="file__form">
                     <i class="file__icon far fa-arrow-alt-circle-up"></i>
                 </label>
-                <input id="file__form" class="file__form" type="file" name="filename" accept=".jpg,.jpeg,.png" >
+                <input id="file__form" class="file__form upload__photo" type="file" name="filename" accept=".jpg,.jpeg,.png" >
             </div>
             
             <form class="upload__form" action="uploadOk" method="post">
                 <input type="text" name="pet_admin" value="${user.user_Num}" class="user_Num" >
-                <input type="text" name="pet_name" placeholder="동물 이름">
+                <input class="pet__name" type="text" name="pet_name" placeholder="*동물 이름">
                 <input type="text" name="pet_age"placeholder="동물 나이">
                 <div class="radio__box">
-                    <label><input type="radio" name="fruit" value="강아지">강아지</label>
-                    <label><input type="radio" name="fruit" value="고양이">고양이</label>
+                    <label><input type="radio" name="pet_type" value="강아지">강아지</label>
+                    <label><input type="radio" name="pet_type" value="고양이">고양이</label>
                 </div>
                 <input type="text" name="pet_species" placeholder="품종">
                 <input class="pet__photo" type="text" name="pet_photo">
-                <input type="text" name="pet_location"placeholder="거주 지역 ex)서울/중구">
+                <input class="pet__location" type="text" name="pet_location"placeholder="*거주 지역 ex)서울/중구">
+                
             </form>
+            <p class="need__form">*은 필수 입력 항목입니다.</p>
             <button class="form__submit">등록</button>
        </section>
-       ${user}
-       ${user.user_Num}
+       <section class="pet__management" data-tab="동물 관리하기">
+           sdfg
+       </section>
    </section>
 
    <!-- <section class="ad__box">

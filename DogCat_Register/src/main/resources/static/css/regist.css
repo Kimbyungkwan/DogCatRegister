@@ -28,7 +28,8 @@
 }
 
 /* regist box */
-.regist__form {
+.regist__form,
+.pet__management {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,6 +112,7 @@
   font-size: 1.2rem;
 }
 .user_Num,
+.upload__photo,
 .pet__photo {
   display: none;
 }
@@ -157,4 +159,11 @@
   right: 0;
   margin: auto;
   background-color: black;
+}
+
+.need__form {
+  text-align: left;
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.5);
+  transform: translate(-85px, -10px);
 }

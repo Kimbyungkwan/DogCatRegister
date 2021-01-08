@@ -7,4 +7,22 @@
 	<select id="newPetList" resultType="com.dcr.application.dto.PetDTO">
 		select * from pet ORDER BY pet_num DESC LIMIT 4
 	</select>
+	<insert id="petRegist" parameterType="com.dcr.application.dto.PetDTO">
+	INSERT INTO pet(pet_name,
+					pet_age,
+					pet_type,
+					pet_species,
+					pet_photo,
+					pet_admin,
+					pet_location)
+	VALUES(
+		#{pet_name},
+		#{pet_age},
+		#{pet_type},
+		#{pet_species},
+		#{pet_photo},
+		#{pet_admin},
+		#{pet_location}
+	)
+	</insert>
 </mapper>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dcr.application.dto.PetDTO;
 import com.dcr.application.dto.UserDTO;
 import com.dcr.application.service.ILostPetService;
 import com.dcr.application.service.IPetService;
@@ -151,16 +152,19 @@ public class MyController {
 	}
 	
 	@RequestMapping("/regist")
-	public String regist() {
-		return "regist";
+	public String regist(HttpSession session) {
+		
+		String page = "regist";
+		if(session.getAttribute("user") == null) {
+			page = "redirect:member/login";
+		}
+		return page;
 	}
 
 	@ResponseBody 
-	@RequestMapping("/regist/fileUpload")
+	@RequestMapping(value="/regist/fileUpload", method=RequestMethod.POST)
 	public String fileUpload(HttpServletRequest request) {
-		
 		JSONObject obj = new JSONObject();
-
 		int size = 1024 * 1024 * 5; // 5M 제한
 		String file = "";
 		String oriFile = "";
@@ -179,7 +183,6 @@ public class MyController {
 			obj.put("desc","업로드 성공");
 			obj.put("src","/upload/images/"+file);
 
-
 			System.out.println("=====");
 			System.out.println("업로드 성공");
 			System.out.println("=====");
@@ -192,5 +195,12 @@ public class MyController {
 		return obj.toJSONString();
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/regist/pet", method=RequestMethod.POST)
+	public String petRegist(@RequestBody PetDTO dto) {
+		System.out.println(dto);
+		pet.petRegist(dto);
+		return "1";
+	}
 	
 }

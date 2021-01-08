@@ -19,6 +19,11 @@ public class PetService implements IPetService {
 		// TODO Auto-generated method stub
 		return dao.newPetList();
 	}
-	
-	
+
+	@Override
+	public int petRegist(PetDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.petRegist(dto);
+	}
+
 }
