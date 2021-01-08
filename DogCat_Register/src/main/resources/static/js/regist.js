@@ -52,15 +52,20 @@ const myPetFetch = async userNum => {
   let result = await response.json();
   paintPet(result, petList);
 };
-
+const hoverImg = e => {
+  console.log(e);
+  const imgUrl =
+    e.target.dataset.imgSrc || '/images/default/regist__default.jpg';
+  console.log(imgUrl);
+};
 // search pet paint
 const paintPet = (dataList, target) => {
   target.innerHTML += `<tbody>`;
   dataList.map((data, i) => {
     const petNum = dataList.length - i;
     const petTag = `
-    <tr>
-        <th scope="row" data-img-src="${data.pet_photo}">${petNum}</th>
+    <tr data-img-src="${data.pet_photo}" onmouseover="hoverImg ()">
+        <th scope="row">${petNum}</th>
         <td>${data.pet_name}</td>
         <td>${data.pet_age}</td>
         <td>${data.pet_type}</td>

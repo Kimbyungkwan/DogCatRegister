@@ -212,3 +212,13 @@
   width: 100px;
   height: 100px;
 } */
+
+.hover__img {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+.hover__img > img {
+  margin: 0 auto;
+  width: 100%;
+}
