@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- bootStrab -->
+
 <!-- css -->
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/regist.css">
@@ -14,6 +16,8 @@
 <script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
 <script defer src="js/navbar.js"></script>
 <script defer src="js/regist.js"></script>
+
+
 <title>Dog & Cat Register</title>
 </head>
 <body>
@@ -85,7 +89,7 @@
                 <input class="pet__name" type="text" name="pet_name" placeholder="*동물 이름">
                 <input type="text" name="pet_age"placeholder="동물 나이">
                 <div class="radio__box">
-                    <label><input type="radio" name="pet_type" value="강아지">강아지</label>
+                    <label><input checked="checked" type="radio" name="pet_type" value="강아지">강아지</label>
                     <label><input type="radio" name="pet_type" value="고양이">고양이</label>
                 </div>
                 <input type="text" name="pet_species" placeholder="품종">
@@ -97,7 +101,21 @@
             <button class="form__submit">등록</button>
        </section>
        <section class="pet__management" data-tab="동물 관리하기">
-           sdfg
+            <!-- Table -->
+            <table class="pet__table">
+                <thead class="pet__list">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">나이</th>
+                    <th scope="col">종류</th>
+                    <th scope="col">품종</th>
+                    <th scope="col">상태</th>
+                    <th scope="col">지역</th>
+                  </tr>
+                </thead>
+              </table>
+          </div>
        </section>
    </section>
 

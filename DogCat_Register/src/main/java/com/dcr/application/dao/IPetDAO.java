@@ -13,4 +13,5 @@ public interface IPetDAO {
 //	메인 페이지에 신규등록된 동물 4마리
 	public List<PetDTO> newPetList();
 	public int petRegist(PetDTO dto);
+	public List<PetDTO> petManage(String userNum);
 }

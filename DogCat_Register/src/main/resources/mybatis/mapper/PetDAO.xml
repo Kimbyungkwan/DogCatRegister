@@ -8,21 +8,13 @@
 		select * from pet ORDER BY pet_num DESC LIMIT 4
 	</select>
 	<insert id="petRegist" parameterType="com.dcr.application.dto.PetDTO">
-	INSERT INTO pet(pet_name,
-					pet_age,
-					pet_type,
-					pet_species,
-					pet_photo,
-					pet_admin,
-					pet_location)
-	VALUES(
-		#{pet_name},
-		#{pet_age},
-		#{pet_type},
-		#{pet_species},
-		#{pet_photo},
-		#{pet_admin},
-		#{pet_location}
+	INSERT INTO pet(pet_name,pet_age,pet_type,pet_species,pet_photo,
+					pet_admin,pet_location)
+	VALUES(#{pet_name},#{pet_age},#{pet_type},#{pet_species},#{pet_photo},
+		#{pet_admin},#{pet_location}
 	)
 	</insert>
+	<select id="petManage" resultType="com.dcr.application.dto.PetDTO">
+		SELECT * FROM pet WHERE pet_admin = #{userNum} ORDER BY pet_num desc;
+	</select>
 </mapper>

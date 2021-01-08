@@ -2,6 +2,8 @@ package com.dcr.application;
 
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -203,4 +205,10 @@ public class MyController {
 		return "1";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/regist/management", method=RequestMethod.POST)
+	public List<PetDTO> petManagement(@RequestBody String userNum) {
+		
+		return pet.petManage(userNum);
+	}
 }

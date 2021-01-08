@@ -4,10 +4,10 @@ const tabBox = document.querySelector('.tab__box');
 tabBox.addEventListener('click', e => {
   const registForm = document.querySelector('.regist__form');
   const petManagement = document.querySelector('.pet__management');
+  const userNum = document.querySelector('.user_Num').value;
   const sectionList = document
     .querySelector('.container')
     .getElementsByTagName('section');
-  console.log(e.target.innerHTML);
   Array.prototype.forEach.call(tabBox.children, li => {
     if (li.innerHTML === e.target.innerHTML) {
       li.classList.add('tab__active');
@@ -17,14 +17,63 @@ tabBox.addEventListener('click', e => {
   });
   Array.prototype.forEach.call(sectionList, section => {
     if (section.dataset.tab === e.target.innerHTML) {
-      console.log(section.dataset.tab);
       section.style.display = 'flex';
+      if (section.dataset.tab === '동물 관리하기' && userNum) {
+        myPetFetch(userNum);
+      }
     } else {
       section.style.display = 'none';
     }
   });
 });
 
+// mypet Search
+const myPetFetch = async userNum => {
+  const petList = document.querySelector('.pet__list');
+
+  petList.innerHTML = `
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">이름</th>
+    <th scope="col">나이</th>
+    <th scope="col">종류</th>
+    <th scope="col">품종</th>
+    <th scope="col">상태</th>
+    <th scope="col">지역</th>
+  </tr>`;
+
+  const response = await fetch('regist/management', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: userNum,
+  });
+  let result = await response.json();
+  paintPet(result, petList);
+};
+
+// search pet paint
+const paintPet = (dataList, target) => {
+  target.innerHTML += `<tbody>`;
+  dataList.map((data, i) => {
+    const petNum = dataList.length - i;
+    const petTag = `
+    <tr>
+        <th scope="row" data-img-src="${data.pet_photo}">${petNum}</th>
+        <td>${data.pet_name}</td>
+        <td>${data.pet_age}</td>
+        <td>${data.pet_type}</td>
+        <td>${data.pet_species}</td>
+        <td>${data.pet_status}</td>
+        <td>${data.pet_location}</td>
+    </tr>
+    `;
+    target.innerHTML += petTag;
+  });
+
+  target.innerHTML += `</tbody>`;
+};
 // image upload
 const fileForm = document.querySelector('.file__form');
 const petPhoto = document.querySelector('.pet__photo');
