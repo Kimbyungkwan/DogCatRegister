@@ -29,17 +29,9 @@ tabBox.addEventListener('click', e => {
 
 // mypet Search
 const petList = document.querySelector('.pet__list');
+const petTable = document.querySelector('.pet__table__body');
 const myPetFetch = async userNum => {
-  petList.innerHTML = `
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">이름</th>
-    <th scope="col">나이</th>
-    <th scope="col">종류</th>
-    <th scope="col">품종</th>
-    <th scope="col">상태</th>
-    <th scope="col">지역</th>
-  </tr>`;
+  petTable.innerHTML = '';
   const response = await fetch('regist/management', {
     method: 'post',
     headers: {
@@ -48,51 +40,45 @@ const myPetFetch = async userNum => {
     body: userNum,
   });
   let result = await response.json();
-  paintPet(result, petList);
+  paintPet(result, petTable);
 };
 
 // search pet paint
 
 const paintPet = (dataList, target) => {
-  target.innerHTML += `<tbody>`;
   dataList.map((data, i) => {
     const petNum = dataList.length - i;
     const petTag = `
-    <tr data-pet-num="${data.pet_num}" data-img-src="${data.pet_photo}" style="cursor: pointer;" class="pet__data__view">
-        <th scope="row">${petNum}</th>
-        <td>${data.pet_name}</td>
-        <td>${data.pet_age}</td>
-        <td>${data.pet_type}</td>
-        <td>${data.pet_species}</td>
-        <td>${data.pet_status}</td>
-        <td>${data.pet_location}</td>
-    </tr>
-    <tr data-pet-num="${data.pet_num}" data-img-src="${data.pet_photo}" class="pet__save__form pet__save__form__showing">
-        <th scope="row" class="pet__save__btn">저장</th>
-        <td><input type="text" value="${data.pet_name}"></td>
-        <td><input type="text" value="${data.pet_age}"></td>
-        <td><input type="text" value="${data.pet_type}"></td>
-        <td><input type="text" value="${data.pet_species}"></td>
-        <td><input type="text" value="${data.pet_status}"></td>
-        <td><input type="text" value="${data.pet_location}"></td>
-    </tr>
+    <li data-img-src="${data.pet_photo}" style="cursor: pointer;" class="pet__data__view">
+      <div data-pet-num="${data.pet_num}" class="pet__table__data">
+        <p>${petNum}</p>
+        <p>${data.pet_name}</p>
+        <p>${data.pet_age}</p>
+        <p>${data.pet_type}</p>
+        <p>${data.pet_species}</p>
+        <p>${data.pet_status}</p>
+        <p>${data.pet_location}</p>
+      </div>
+      <div class="pet__table__data-form ">
+        <input class="pet__data__set-btn" type="button" value="저장"></input>
+        <input class="pet__data__set" type="text" value="${data.pet_name}">
+        <input class="pet__data__set" type="text" value="${data.pet_age}">
+        <input class="pet__data__set" type="text" value="${data.pet_type}">
+        <input class="pet__data__set" type="text" value="${data.pet_species}">
+        <input class="pet__data__set" type="text" value="${data.pet_status}">
+        <input class="pet__data__set" type="text" value="${data.pet_location}">
+      <div>
+    </li>
     `;
     target.innerHTML += petTag;
   });
-  target.innerHTML += `</tbody>`;
 };
 
-petList.addEventListener('click', e => {
-  const formTarget = e.target.parentNode.dataset.petNum;
-  if (formTarget) {
-    Array.prototype.forEach.call(petList.children, item => {
-      if (formTarget === item.dataset.petNum) {
-        if (item.matches('.pet__save__form')) {
-          item.classList.toggle('pet__save__form__showing');
-        }
-      }
-    });
-  }
+petTable.addEventListener('click', e => {
+  if (!e.target.parentNode.classList.contains('pet__table__data')) return;
+  e.target.parentNode.nextSibling.nextSibling.classList.toggle(
+    'pet__table__data-form-showing'
+  );
 });
 
 // image upload

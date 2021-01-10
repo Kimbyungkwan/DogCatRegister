@@ -102,19 +102,20 @@
        </section>
        <section class="pet__management" data-tab="동물 관리하기">
             <!-- Table -->
-            <table class="pet__table">
-                <thead class="pet__list">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">이름</th>
-                    <th scope="col">나이</th>
-                    <th scope="col">종류</th>
-                    <th scope="col">품종</th>
-                    <th scope="col">상태</th>
-                    <th scope="col">지역</th>
-                  </tr>
-                </thead>
-              </table>
+            <div class="pet_table">
+                <div class="pet__table__head">
+                    <p>#</p>
+                    <p>이름</p>
+                    <p>나이</p>
+                    <p>종류</p>
+                    <p>품종</p>
+                    <p>상태</p>
+                    <p>지역</p>
+                </div>
+                <ul class="pet__table__body">
+
+                </ul>
+            </div>
           </div>
        </section>
    </section>
