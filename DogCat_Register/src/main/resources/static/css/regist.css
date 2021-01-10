@@ -178,6 +178,7 @@
 }
 .pet__list > tr > th {
   padding: 0.5rem 0.5rem;
+  width: 100px;
 }
 .pet__list > tr:first-child {
   border-bottom: 1px solid black;
@@ -189,7 +190,40 @@
   border: none;
 }
 .pet__list > tr > td {
+  width: 15rem;
   text-align: center;
+}
+.pet__list > tr > td > input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid#ccc;
+  background-color: #ccc;
+  color: black;
+  font-weight: 600;
+}
+
+.pet__list > tr > td > input:active {
+  outline: none;
+}
+.pet__list > tr > td > input:focus {
+  outline: none;
+}
+
+.pet__save__form {
+  background: #ccc;
+}
+.pet__save__form__showing {
+  display: none;
+}
+
+.pet__save__btn {
+  white-space: nowrap;
+  font-size: 1rem;
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
 /* .pet__list {
   padding: 0;

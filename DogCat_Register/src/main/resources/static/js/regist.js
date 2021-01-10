@@ -28,9 +28,8 @@ tabBox.addEventListener('click', e => {
 });
 
 // mypet Search
+const petList = document.querySelector('.pet__list');
 const myPetFetch = async userNum => {
-  const petList = document.querySelector('.pet__list');
-
   petList.innerHTML = `
   <tr>
     <th scope="col">#</th>
@@ -41,7 +40,6 @@ const myPetFetch = async userNum => {
     <th scope="col">상태</th>
     <th scope="col">지역</th>
   </tr>`;
-
   const response = await fetch('regist/management', {
     method: 'post',
     headers: {
@@ -52,19 +50,15 @@ const myPetFetch = async userNum => {
   let result = await response.json();
   paintPet(result, petList);
 };
-const hoverImg = e => {
-  console.log(e);
-  const imgUrl =
-    e.target.dataset.imgSrc || '/images/default/regist__default.jpg';
-  console.log(imgUrl);
-};
+
 // search pet paint
+
 const paintPet = (dataList, target) => {
   target.innerHTML += `<tbody>`;
   dataList.map((data, i) => {
     const petNum = dataList.length - i;
     const petTag = `
-    <tr data-img-src="${data.pet_photo}" onmouseover="hoverImg ()">
+    <tr data-pet-num="${data.pet_num}" data-img-src="${data.pet_photo}" style="cursor: pointer;" class="pet__data__view">
         <th scope="row">${petNum}</th>
         <td>${data.pet_name}</td>
         <td>${data.pet_age}</td>
@@ -73,12 +67,34 @@ const paintPet = (dataList, target) => {
         <td>${data.pet_status}</td>
         <td>${data.pet_location}</td>
     </tr>
+    <tr data-pet-num="${data.pet_num}" data-img-src="${data.pet_photo}" class="pet__save__form pet__save__form__showing">
+        <th scope="row" class="pet__save__btn">저장</th>
+        <td><input type="text" value="${data.pet_name}"></td>
+        <td><input type="text" value="${data.pet_age}"></td>
+        <td><input type="text" value="${data.pet_type}"></td>
+        <td><input type="text" value="${data.pet_species}"></td>
+        <td><input type="text" value="${data.pet_status}"></td>
+        <td><input type="text" value="${data.pet_location}"></td>
+    </tr>
     `;
     target.innerHTML += petTag;
   });
-
   target.innerHTML += `</tbody>`;
 };
+
+petList.addEventListener('click', e => {
+  const formTarget = e.target.parentNode.dataset.petNum;
+  if (formTarget) {
+    Array.prototype.forEach.call(petList.children, item => {
+      if (formTarget === item.dataset.petNum) {
+        if (item.matches('.pet__save__form')) {
+          item.classList.toggle('pet__save__form__showing');
+        }
+      }
+    });
+  }
+});
+
 // image upload
 const fileForm = document.querySelector('.file__form');
 const petPhoto = document.querySelector('.pet__photo');
