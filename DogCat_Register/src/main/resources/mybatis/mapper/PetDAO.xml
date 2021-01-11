@@ -17,4 +17,12 @@
 	<select id="petManage" resultType="com.dcr.application.dto.PetDTO">
 		SELECT * FROM pet WHERE pet_admin = #{userNum} ORDER BY pet_num desc;
 	</select>
+	<update id="petUpdate" parameterType="com.dcr.application.dto.PetDTO">
+	update pet
+	set pet_name= #{pet_name},pet_age= #{pet_age},pet_type= #{pet_type},
+		pet_species= #{pet_species}, pet_photo= #{pet_photo},
+		pet_location= #{pet_location}
+	where pet_num = #{pet_num}
+	</update>
+	
 </mapper>

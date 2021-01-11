@@ -14,4 +14,5 @@ public interface IPetDAO {
 	public List<PetDTO> newPetList();
 	public int petRegist(PetDTO dto);
 	public List<PetDTO> petManage(String userNum);
+	public int petUpdate(PetDTO dto);
 }

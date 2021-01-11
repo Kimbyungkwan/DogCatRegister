@@ -119,9 +119,7 @@
           </div>
        </section>
    </section>
-   <div class="hover__img">
-       <img src="/upload/images/dmani.jpg" alt="hover__img">
-   </div>
+   
    <!-- <section class="ad__box">
        
    </section> -->

@@ -3,7 +3,6 @@ package com.dcr.application;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -211,4 +210,18 @@ public class MyController {
 		
 		return pet.petManage(userNum);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/regist/management/update", method=RequestMethod.POST)
+	public String petUpdate(@RequestBody PetDTO dto) {
+		
+		System.out.println("---------");
+		System.out.println(dto);
+		pet.petUpdate(dto);
+		return "1";
+	}
+	
+	 
+	
+	
 }

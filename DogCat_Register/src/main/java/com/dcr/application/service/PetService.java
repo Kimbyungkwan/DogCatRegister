@@ -32,4 +32,10 @@ public class PetService implements IPetService {
 		return dao.petManage(userNum);
 	}
 
+	@Override
+	public int petUpdate(PetDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.petUpdate(dto);
+	}
+
 }
