@@ -213,12 +213,12 @@ public class MyController {
 	
 	@ResponseBody
 	@RequestMapping(value="/regist/management/update", method=RequestMethod.POST)
-	public String petUpdate(@RequestBody PetDTO dto) {
+	public List<PetDTO> petUpdate(@RequestBody PetDTO dto) {
 		
 		System.out.println("---------");
 		System.out.println(dto);
 		pet.petUpdate(dto);
-		return "1";
+		return pet.petManage(dto.getPet_admin());
 	}
 	
 	 

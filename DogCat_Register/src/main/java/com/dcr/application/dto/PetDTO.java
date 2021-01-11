@@ -8,7 +8,7 @@ public class PetDTO {
 
 	private int pet_num;
 	private String pet_name;
-	private int pet_age;
+	private String pet_age;
 	private String pet_status;
 	private String pet_type;
 	private String pet_species;

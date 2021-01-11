@@ -74,7 +74,7 @@
   color: var(--color-blue);
 }
 .img__box input[type='file'] {
-  display: block;
+  display: none;
 }
 
 .regist__form > form {

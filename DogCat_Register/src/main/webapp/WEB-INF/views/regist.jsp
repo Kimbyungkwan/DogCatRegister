@@ -86,15 +86,15 @@
             
             <form class="upload__form" action="uploadOk" method="post">
                 <input type="text" name="pet_admin" value="${user.user_Num}" class="user_Num" >
-                <input class="pet__name" type="text" name="pet_name" placeholder="*동물 이름">
+                <input class="pet__name" type="text" name="pet_name" placeholder="*동물 이름" maxlength="20" >
                 <input type="text" name="pet_age"placeholder="동물 나이">
-                <div class="radio__box">
+                <div class="radio__box" maxlength="20" >
                     <label><input checked="checked" type="radio" name="pet_type" value="강아지">강아지</label>
                     <label><input type="radio" name="pet_type" value="고양이">고양이</label>
                 </div>
-                <input type="text" name="pet_species" placeholder="품종">
+                <input type="text" name="pet_species" placeholder="품종" maxlength="20" >
                 <input class="pet__photo" type="text" name="pet_photo">
-                <input class="pet__location" type="text" name="pet_location"placeholder="*거주 지역 ex)서울/중구">
+                <input class="pet__location" type="text" name="pet_location"placeholder="*거주 지역 ex)서울/중구" maxlength="20">
                 
             </form>
             <p class="need__form">*은 필수 입력 항목입니다.</p>
