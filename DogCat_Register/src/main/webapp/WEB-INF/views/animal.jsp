@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <!-- css -->
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/animal.css">
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/animal.css">
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
-<script defer src="js/navbar.js"></script>
-<script defer src="js/animal.js"></script>
+<script defer src="/js/navbar.js"></script>
+<script defer src="/js/animal.js"></script>
 <title>Dog & Cat Register</title>
 </head>
 <body>
@@ -69,12 +69,90 @@
     <section class="animal__hero">
         <h4 class="animal__hero__title">
             현재 등록된 동물은<br>
-            <p class="animal__hero__title-count">100</p>마리
+            <p class="animal__hero__title-count"></p>마리
         </h4>
     </section>
    
     <section class="pet__container">
         <ul class="pet__list">
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들토이푸들토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
+            <li class="pet">
+                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">코코</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">8살</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">토이푸들토이푸들토이푸들</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">서울/중구</dd>
+                </dl>
+            </li>
             <li class="pet">
                 <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
                 <dl class="pet__content">

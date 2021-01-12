@@ -38,4 +38,16 @@ public class PetService implements IPetService {
 		return dao.petUpdate(dto);
 	}
 
+	@Override
+	public int petCounter() {
+		// TODO Auto-generated method stub
+		return  dao.petCounter();
+	}
+
+	@Override
+	public int petPagination() {
+		// TODO Auto-generated method stub
+		return dao.petCounter();
+	}
+
 }

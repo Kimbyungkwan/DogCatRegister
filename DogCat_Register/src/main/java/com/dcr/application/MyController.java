@@ -1,5 +1,6 @@
 package com.dcr.application;
 
+import java.net.http.HttpRequest;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -142,9 +144,28 @@ public class MyController {
 		return map;
 	}
 	
-	@RequestMapping("/animal")
-	public String animal() {
+	@RequestMapping(value={"/animal","/animal/1"})
+	public String animal(HttpServletRequest request,Model model) throws Exception {
+
+		System.out.println(model);
+		System.out.println(request.getParameter("num"));
+		System.out.println(pet.petPagination());
 		return "animal";
+	}
+	@RequestMapping("/animal/{num}")
+	public String animalPage(@PathVariable("num") String num,Model model) throws Exception {
+//		model.addAttribute("newPetlist", pet.newPetList());
+//		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
+//		
+		System.out.println(num);
+		return "animal";
+	}
+
+	@ResponseBody 
+	@RequestMapping("/animal/counter")
+	public int animalCounter() {
+		System.out.println(pet.petCounter());
+		return pet.petCounter();
 	}
 	
 	@RequestMapping("/find")

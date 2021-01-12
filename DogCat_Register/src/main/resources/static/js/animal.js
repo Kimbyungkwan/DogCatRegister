@@ -1,13 +1,24 @@
-const animalCounter = sec => {
+window.onload = function () {
+  getAnimalCount().then(count => {
+    animalCounter(count, 20);
+    // (count * 20) / count
+  });
+};
+
+// animal count get
+const animalCounter = (count, sec) => {
   const animalCount = document.querySelector('.animal__hero__title-count');
-  let count = 0;
+  let i = 0;
   const counter = setInterval(() => {
-    if (count <= 100) {
-      animalCount.innerHTML = count++;
+    if (i <= count) {
+      animalCount.innerHTML = i++;
     } else {
       clearInterval(counter);
     }
   }, sec);
 };
 
-animalCounter(10);
+const getAnimalCount = async () => {
+  const res = await fetch('/animal/counter');
+  return await res.json();
+};

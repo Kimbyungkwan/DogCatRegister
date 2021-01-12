@@ -41,11 +41,11 @@
 .pet {
   width: calc(50% - 18px);
   height: 144px;
-  margin: 12px 0;
+  margin: 0.5rem 0;
   padding-left: 160px;
   display: flex;
   position: relative;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
 }
 .pet__thmb {
@@ -68,9 +68,17 @@
 .pet__content > dt {
   color: #999;
   width: 40%;
+  margin-bottom: 0.5rem;
 }
 .pet__content > dd {
   width: 60%;
   text-align: right;
   font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+@media all and (max-width: 940px) {
+  .pet {
+    width: 100%;
+  }
 }

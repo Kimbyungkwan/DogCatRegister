@@ -24,5 +24,8 @@
 		pet_location= #{pet_location}
 	where pet_num = #{pet_num}
 	</update>
+	<select id="petCounter" resultType="_int">
+		SELECT COUNT(*) FROM pet;
+	</select>
 	
 </mapper>

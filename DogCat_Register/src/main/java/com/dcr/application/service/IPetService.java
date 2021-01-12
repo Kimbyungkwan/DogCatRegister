@@ -9,4 +9,6 @@ public interface IPetService {
 	public int petRegist(PetDTO dto);
 	public List<PetDTO> petManage(String userNum);
 	public int petUpdate(PetDTO dto);
+	public int petCounter();
+	public int petPagination();
 }
