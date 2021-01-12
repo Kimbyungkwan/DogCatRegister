@@ -73,7 +73,7 @@
                 <h4><span class="L_text">당신의<br></span> <span>반려동물을 등록하고<br></span><span>공유하세요.</span></h4>
                 <div class="content-line"></div>
                 <h5>동물을 보호하고 유실,유기를 방지 할 수 있어요.</h5>
-                <a class="register__button" href="/">등록하기</a>
+                <a class="register__button" href="/regist">등록하기</a>
         </div>
     </section>
 

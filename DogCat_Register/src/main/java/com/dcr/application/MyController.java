@@ -198,10 +198,20 @@ public class MyController {
 	
 	@ResponseBody
 	@RequestMapping(value="/regist/pet", method=RequestMethod.POST)
-	public String petRegist(@RequestBody PetDTO dto) {
+	public int petRegist(@RequestBody PetDTO dto) {
 		System.out.println(dto);
-		pet.petRegist(dto);
-		return "1";
+		int complete;
+		
+		try{
+			pet.petRegist(dto);
+			complete=1;
+			}
+		catch (Exception e) {
+			// TODO: handle exception
+			complete=0;
+		}
+		
+		return complete;
 	}
 	
 	@ResponseBody

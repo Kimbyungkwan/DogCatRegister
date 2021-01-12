@@ -66,6 +66,7 @@ const paintPet = (dataList, target) => {
         <input type="text" name="pet_photo" value="${data.pet_photo}" style="display:none;">
         <input type="text" name="pet_admin" value="${data.pet_admin}" style="display:none;">
         <input type="text" name="pet_num" value=${data.pet_num} style="display:none;">
+  
       <form>
     </li>
     `;
@@ -146,12 +147,15 @@ const submitBtn = document.querySelector('.form__submit');
 const petName = document.querySelector('.pet__name');
 const petLocation = document.querySelector('.pet__location');
 const needForm = document.querySelector('.need__form');
+const completeModal = document.querySelector('.complete__modal');
 
 submitBtn.addEventListener('click', () => {
   if (!petName.value.length || !petLocation.value.length) {
     needForm.style.color = 'var(--color-red)';
     return;
   }
+  completeModal.style.display = 'flex';
+  completeModal.innerHTML = `<div class="spinner"></div>`;
   needForm.style.color = '';
   const postForm = {};
   const inputList = document
@@ -163,8 +167,13 @@ submitBtn.addEventListener('click', () => {
     }
     postForm[input.name] = input.value;
   });
+  if (postForm.pet_photo == '') {
+    postForm.pet_photo = '/upload/images/main_default.png';
+  }
   console.log(postForm);
-  petSubmit(postForm);
+  setTimeout(() => {
+    petSubmit(postForm);
+  }, 300);
 });
 
 // 동물 obj를 전송함
@@ -177,7 +186,18 @@ const petSubmit = async obj => {
     body: JSON.stringify(obj),
   });
   let result = await response.json();
-
+  console.log(result);
+  if (result) {
+    completeModal.innerHTML = `
+    <h4 class="complete__title" onclick="closeModal()" >
+        등록완료
+    </h4>`;
+  } else {
+    completeModal.innerHTML = `
+    <h4 class="complete__fail" onclick="closeModal()" >
+      등록실패
+    </h4>`;
+  }
   const inputList = document
     .querySelector('.upload__form')
     .getElementsByTagName('input');
@@ -193,4 +213,10 @@ const resetForm = (target, callback) => {
   Array.prototype.forEach.call(target, input => {
     callback(input);
   });
+};
+
+// modal reset
+const closeModal = () => {
+  completeModal.style.display = 'none';
+  completeModal.innerHTML = '';
 };

@@ -76,6 +76,9 @@
             <li class="tab">동물 관리하기</li>
        </ul>
        <section class="regist__form" data-tab="동물 등록하기">
+            <div class="complete__modal">
+                
+            </div>
             <div class="img__box">
                 <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
                 <label for="file__form">
