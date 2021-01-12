@@ -1,11 +1,11 @@
 package com.dcr.application.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.dcr.application.dto.PetDTO;
-import com.dcr.application.dto.UserDTO;
 
 @Mapper
 public interface IPetDAO {
@@ -16,5 +16,5 @@ public interface IPetDAO {
 	public List<PetDTO> petManage(String userNum);
 	public int petUpdate(PetDTO dto);
 	public int petCounter();
-	public int petPagination();
+	public List<PetDTO> petPageList(Map<String,Integer> page);
 }

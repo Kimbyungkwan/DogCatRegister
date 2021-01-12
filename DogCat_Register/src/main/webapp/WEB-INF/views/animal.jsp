@@ -75,7 +75,22 @@
    
     <section class="pet__container">
         <ul class="pet__list">
-            <li class="pet">
+        <c:forEach items="${petList}" var="pet">
+        	<li class="pet">
+                <img class="pet__thmb" src="${pet.pet_photo}" alt="${pet.pet_num}+${pet.pet_name}">
+                <dl class="pet__content">
+                    <dt>이름</dt>   
+                    <dd class="pet__name">${pet.pet_name}</dd>
+                    <dt>나이</dt>
+                    <dd class="pet__pet_age">${pet.pet_age}</dd>
+                    <dt>품종</dt>
+                    <dd class="pet__pet_species">${pet.pet_species}</dd>
+                    <dt>사는 곳</dt>
+                    <dd class="pet__pet_location">${pet.pet_location}</dd>
+                </dl>
+            </li>	
+        </c:forEach>
+            <!-- <li class="pet">
                 <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
                 <dl class="pet__content">
                     <dt>이름</dt>   
@@ -87,99 +102,15 @@
                     <dt>사는 곳</dt>
                     <dd class="pet__pet_location">서울/중구</dd>
                 </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들토이푸들토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들토이푸들토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
-            <li class="pet">
-                <img class="pet__thmb" src="/upload/images/coco.jpg" alt="pet__img">
-                <dl class="pet__content">
-                    <dt>이름</dt>   
-                    <dd class="pet__name">코코</dd>
-                    <dt>나이</dt>
-                    <dd class="pet__pet_age">8살</dd>
-                    <dt>품종</dt>
-                    <dd class="pet__pet_species">토이푸들</dd>
-                    <dt>사는 곳</dt>
-                    <dd class="pet__pet_location">서울/중구</dd>
-                </dl>
-            </li>
+            </li> -->
         </ul>
+
+        <div id="page">
+            <c:forEach items="${petCounter}" var="count">
+                <a href="/animal/${count}">${count}</a>
+            </c:forEach>
+        </div>
     </section>
+
 </body>
 </html>

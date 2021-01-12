@@ -28,4 +28,7 @@
 		SELECT COUNT(*) FROM pet;
 	</select>
 	
+	<select id="petPageList" resultType="com.dcr.application.dto.PetDTO">
+			select * from pet order by pet_num DESC limit #{pageNum},#{pageSize}
+	</select>
 </mapper>

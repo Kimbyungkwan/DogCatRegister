@@ -148,23 +148,27 @@ public class MyController {
 	public String animal(HttpServletRequest request,Model model) throws Exception {
 
 		System.out.println(model);
-		System.out.println(request.getParameter("num"));
-		System.out.println(pet.petPagination());
+		pet.petPagination(1);
+		model.addAttribute("petList",pet.petPagination(1));
+		model.addAttribute("petCounter",pet.petCounter());
 		return "animal";
 	}
+	
 	@RequestMapping("/animal/{num}")
 	public String animalPage(@PathVariable("num") String num,Model model) throws Exception {
 //		model.addAttribute("newPetlist", pet.newPetList());
 //		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
 //		
+		
 		System.out.println(num);
+		model.addAttribute("petList",pet.petPagination(Integer.parseInt(num)));
+		model.addAttribute("petCounter",pet.petCounter());
 		return "animal";
 	}
 
 	@ResponseBody 
 	@RequestMapping("/animal/counter")
 	public int animalCounter() {
-		System.out.println(pet.petCounter());
 		return pet.petCounter();
 	}
 	
