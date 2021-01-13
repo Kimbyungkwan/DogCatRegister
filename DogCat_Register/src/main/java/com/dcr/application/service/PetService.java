@@ -61,9 +61,6 @@ public class PetService implements IPetService {
 		
 		asdf.put("test", dao.petPageList(page));
 		
-		System.out.println("=========="+asdf+"=========");
-		System.out.println();
-		
 		return dao.petPageList(page);
 	}
 

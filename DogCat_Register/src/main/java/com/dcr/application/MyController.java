@@ -151,6 +151,7 @@ public class MyController {
 		pet.petPagination(1);
 		model.addAttribute("petList",pet.petPagination(1));
 		model.addAttribute("petCounter",pet.petCounter());
+		model.addAttribute("num",1);
 		return "animal";
 	}
 	
@@ -163,6 +164,7 @@ public class MyController {
 		System.out.println(num);
 		model.addAttribute("petList",pet.petPagination(Integer.parseInt(num)));
 		model.addAttribute("petCounter",pet.petCounter());
+		model.addAttribute("num",num);
 		return "animal";
 	}
 

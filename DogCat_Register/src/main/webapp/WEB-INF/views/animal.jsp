@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,9 +107,19 @@
         </ul>
 
         <div id="page">
-            <c:forEach items="${petCounter}" var="count">
-                <a href="/animal/${count}">${count}</a>
-            </c:forEach>
+            
+		    <c:forEach 	var="item" begin="0" end="${Math.ceil(petCounter/8)-1}" step="1" varStatus="status" >
+	    				
+			    <c:choose>
+			        <c:when test="${status.count == num}">  
+						<p  class="now__page" href="/animal/${status.count}">${status.count}</p>
+			        </c:when>         
+			        <c:otherwise>
+			           <a class="num__box" href="/animal/${status.count}">${status.count}</a>
+			         </c:otherwise>
+			    </c:choose>
+
+		    </c:forEach>
         </div>
     </section>
 

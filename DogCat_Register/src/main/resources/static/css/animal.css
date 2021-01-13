@@ -29,7 +29,7 @@
 .pet__container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 10px 5rem 10px;
 }
 .pet__list {
   width: 100%;
@@ -75,6 +75,30 @@
   text-align: right;
   font-weight: 500;
   margin-bottom: 0.5rem;
+}
+
+#page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+#page > * {
+  padding: 0.5rem 0.75rem;
+}
+
+#page > a {
+  color: #afabab;
+}
+
+.num__box:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.now__page {
+  color: white;
+  background-color: var(--color-blue);
 }
 
 @media all and (max-width: 940px) {
