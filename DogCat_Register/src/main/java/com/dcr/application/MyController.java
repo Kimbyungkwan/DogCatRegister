@@ -148,10 +148,12 @@ public class MyController {
 	public String animal(HttpServletRequest request,Model model) throws Exception {
 
 		System.out.println(model);
-		pet.petPagination(1);
-		model.addAttribute("petList",pet.petPagination(1));
+		pet.petPageList(1);
+		model.addAttribute("petList",pet.petPageList(1));
 		model.addAttribute("petCounter",pet.petCounter());
 		model.addAttribute("num",1);
+
+		model.addAttribute("pageList",pet.getPagination(1));
 		return "animal";
 	}
 	
@@ -160,11 +162,21 @@ public class MyController {
 //		model.addAttribute("newPetlist", pet.newPetList());
 //		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
 //		
-		
+		if(Integer.parseInt(num) % 5 == 0) {
+			model.addAttribute("nextPage",true);
+			System.out.println(pet.petCounter());
+		}else {
+			model.addAttribute("nextPage",false);
+		}
+
+
 		System.out.println(num);
-		model.addAttribute("petList",pet.petPagination(Integer.parseInt(num)));
+		
+		model.addAttribute("petList",pet.petPageList(Integer.parseInt(num)));
 		model.addAttribute("petCounter",pet.petCounter());
 		model.addAttribute("num",num);
+		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num)));
+		
 		return "animal";
 	}
 

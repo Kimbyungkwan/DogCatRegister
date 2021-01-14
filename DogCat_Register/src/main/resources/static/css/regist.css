@@ -3,6 +3,7 @@
   border: 1px solid #ccc;
   margin: 0 auto;
   margin-top: 6.5rem;
+  margin-bottom: 5rem;
 }
 
 .tab__box {
@@ -247,6 +248,22 @@
 /* pet list */
 .pet__management {
   width: 100%;
+}
+.form__notice {
+  background-color: #eee;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+.notice__title {
+  font-size: 1.8rem;
+}
+.notice__content {
+  font-size: 1rem;
+}
+.notice__content.content-red {
+  color: var(--color-red);
+  font-size: 0.7rem;
 }
 .pet_table {
   width: 100%;

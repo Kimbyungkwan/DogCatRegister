@@ -29,7 +29,7 @@
 .pet__container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 10px 5rem 10px;
+  padding: 2.5rem 10px;
 }
 .pet__list {
   width: 100%;
@@ -48,14 +48,20 @@
   align-items: center;
   overflow: hidden;
 }
-.pet__thmb {
+.pet__thmb__box {
   position: absolute;
   width: 144px;
+  height: 144px;
+  overflow: hidden;
   top: 0;
   left: 0;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
 }
-
+.pet__thmb {
+  height: 100%;
+}
 .pet__content {
   width: 100%;
   display: flex;

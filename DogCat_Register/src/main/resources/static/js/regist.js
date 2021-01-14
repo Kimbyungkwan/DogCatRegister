@@ -46,7 +46,7 @@ const paintPet = (dataList, target) => {
     const petNum = dataList.length - i;
     const petTag = `
     <li data-img-src="${data.pet_photo}" style="cursor: pointer;" class="pet__data__view">
-      <div data-pet-num="${data.pet_num}" class="pet__table__data">
+      <div data-pet-num="${data.pet_num}" class="pet__table__data" onclick="test">
         <p>${petNum}</p>
         <p>${data.pet_name}</p>
         <p>${data.pet_age}</p>
@@ -55,7 +55,7 @@ const paintPet = (dataList, target) => {
         <p>${data.pet_status}</p>
         <p>${data.pet_location}</p>
       </div>
-      <form class="pet__table__data-form">
+      <form data-pet-num="${data.pet_num}" class="pet__table__data-form">
         <input class="pet__data__set-btn" type="button" value="저장"></input>
         <input class="pet__data__set" name="pet_name" type="text" value="${data.pet_name}" maxlength="20">
         <input class="pet__data__set" name="pet_age" type="text" value="${data.pet_age}" maxlength="20">
@@ -72,6 +72,10 @@ const paintPet = (dataList, target) => {
     `;
     target.innerHTML += petTag;
   });
+};
+
+const test = e => {
+  console.log(e.target);
 };
 
 // 동물 수정사항 전송
@@ -94,14 +98,14 @@ petTable.addEventListener('click', e => {
 petTable.addEventListener('click', e => {
   if (!e.target.parentNode.classList.contains('pet__table__data')) return;
   const petTableForm = document.querySelectorAll('.pet__table__data-form');
+  console.log(e.target.parentNode.dataset.petNum);
   petTableForm.forEach(form => {
-    if (form.classList.contains('pet__table__data-form-showing')) {
+    if (e.target.parentNode.dataset.petNum == form.dataset.petNum) {
+      form.classList.toggle('pet__table__data-form-showing');
+    } else {
       form.classList.remove('pet__table__data-form-showing');
     }
   });
-  e.target.parentNode.nextSibling.nextSibling.classList.toggle(
-    'pet__table__data-form-showing'
-  );
 });
 
 // 동물 수정사항 전송

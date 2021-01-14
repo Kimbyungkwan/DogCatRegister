@@ -104,6 +104,13 @@
             <button class="form__submit">등록</button>
        </section>
        <section class="pet__management" data-tab="동물 관리하기">
+           <div class="form__notice">
+               <h4 class="notice__title">관리방법</h4>
+               <p class="notice__content">해당 <strong>동물 테이블을 클릭</strong>하면 수정창이 열립니다.</p>
+               <p class="notice__content">수정창이 열리고 <strong>수정후에 왼쪽의 저장버튼</strong> 누르면 저장완료.</p>
+               <p class="notice__content content-red">*상태에는 <strong>생존/유실/사망</strong>만 작성해주세요.</p>
+
+           </div>
             <!-- Table -->
             <div class="pet_table">
                 <div class="pet__table__head">

@@ -78,7 +78,9 @@
         <ul class="pet__list">
         <c:forEach items="${petList}" var="pet">
         	<li class="pet">
-                <img class="pet__thmb" src="${pet.pet_photo}" alt="${pet.pet_num}+${pet.pet_name}">
+                <div class="pet__thmb__box">
+                    <img class="pet__thmb" src="${pet.pet_photo}" alt="${pet.pet_num}+${pet.pet_name}">
+                </div>
                 <dl class="pet__content">
                     <dt>이름</dt>   
                     <dd class="pet__name">${pet.pet_name}</dd>
@@ -108,8 +110,8 @@
 
         <div id="page">
             
-		    <c:forEach 	var="item" begin="0" end="${Math.ceil(petCounter/8)-1}" step="1" varStatus="status" >
-	    				
+		    <!-- <c:forEach 	var="item" begin="0" end="${Math.ceil(petCounter/8)-1}" step="1" varStatus="status" >
+            
 			    <c:choose>
 			        <c:when test="${status.count == num}">  
 						<p  class="now__page" href="/animal/${status.count}">${status.count}</p>
@@ -119,6 +121,17 @@
 			         </c:otherwise>
 			    </c:choose>
 
+		    </c:forEach> -->
+		    
+		    <c:forEach 	var="pgn" items="${pageList}">
+			    <c:choose>
+			        <c:when test="${pgn.curPage}">  
+						<p  class="now__page" href="/animal/${pgn.pageNo}">${pgn.display}</p>
+			        </c:when>         
+			        <c:otherwise>
+		    			<a class="num__box" href="/animal/${pgn.pageNo}">${pgn.display}</a>
+			         </c:otherwise>
+			    </c:choose>
 		    </c:forEach>
         </div>
     </section>
