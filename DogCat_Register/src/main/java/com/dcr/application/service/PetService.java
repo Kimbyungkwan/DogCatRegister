@@ -83,7 +83,7 @@ public class PetService implements IPetService {
 		}
 		
 		if(firstLink > 1) {
-			pageList.add(new PaginationDTO("이전", pageNum -paginationSize, false));
+			pageList.add(new PaginationDTO("이전", pageNum -1, false));
 		}
 		
 		for(int i = firstLink; i <= lastLink; i++) {
@@ -91,11 +91,8 @@ public class PetService implements IPetService {
 		}
 		
 		if(lastLink < numPages) {
-			int tmpPageNo = pageNum + paginationSize;
-			if(tmpPageNo > numPages) {
-				tmpPageNo = numPages;
-			}
-			pageList.add(new PaginationDTO("다음", tmpPageNo, false));
+			
+			pageList.add(new PaginationDTO("다음", pageNum + 1, false));
 		}
 		
 		return pageList;

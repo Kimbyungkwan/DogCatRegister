@@ -1,0 +1,41 @@
+.find__hero {
+  text-align: center;
+  margin-top: 4.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+  /* background-image: url(/images/animal/animal__count.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px 250px 200px 51px rgba(255, 255, 255, 0.5); */
+}
+
+.find__hero__title {
+  font-size: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.find__hero__title-img {
+  width: 150px;
+  margin: 2rem 0 0 0;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  animation: sparkle 1s linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+  50% {
+    filter: drop-shadow(2px 4px 12px black) sepia(1) brightness(0.5)
+      saturate(100);
+  }
+  100% {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+}

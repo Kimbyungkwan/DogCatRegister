@@ -66,6 +66,12 @@
         <i class="fas fa-bars menu__toggle"></i>
     </nav>
 
+    <section class="find__hero">
+        <h4 class="find__hero__title">
+            잃어버린 동물을 같이 찾아주세요.<br>
+            <img class="find__hero__title-img" src="/images/find/find__hero.png"/>
+        </h4>
+    </section>
    
 </body>
 </html>
