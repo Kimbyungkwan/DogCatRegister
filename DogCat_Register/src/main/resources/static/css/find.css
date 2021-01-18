@@ -4,6 +4,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  flex-direction: column;
   background-color: #ccc;
   /* background-image: url(/images/animal/animal__count.jpg);
   background-position: center;
@@ -16,7 +17,7 @@
   font-size: 2rem;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .find__hero__title-img {
@@ -40,6 +41,13 @@
   }
 }
 
+.find__hero__regist {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0 0 2rem 0;
+  transform: translateY(-10px);
+}
+
 /* findAnimal */
 
 .findAnimal {
@@ -57,6 +65,12 @@
 .findAnimal__list__item {
   width: 100%;
   display: flex;
+  margin-bottom: 1rem;
+  border-radius: 0 20px 0 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  transition: all 0.1s linear;
+  cursor: pointer;
 }
 
 .image-area,
@@ -69,6 +83,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0 20px 20px 20px;
 }
 .image-area > img {
   width: 100%;
@@ -76,4 +91,42 @@
 
 .findAnimal__content {
   text-align: right;
+}
+.content-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 0.5rem;
+}
+.content-top > p {
+  margin-bottom: 0.5rem;
+}
+
+.findAnimal__list__item:hover {
+  transform: scale(1.02);
+}
+
+#page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 2rem 0;
+}
+
+#page > * {
+  padding: 0.5rem 0.75rem;
+}
+
+#page > a {
+  color: #afabab;
+}
+
+.num__box:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.now__page {
+  color: white;
+  background-color: var(--color-blue);
 }

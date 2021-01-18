@@ -153,29 +153,19 @@ public class MyController {
 		model.addAttribute("petCounter",pet.petCounter());
 		model.addAttribute("num",1);
 
-		model.addAttribute("pageList",pet.getPagination(1));
+		model.addAttribute("pageList",pet.getPagination(1,pet.petCounter()));
 		return "animal";
 	}
 	
 	@RequestMapping("/animal/{num}")
 	public String animalPage(@PathVariable("num") String num,Model model) throws Exception {
-//		model.addAttribute("newPetlist", pet.newPetList());
-//		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
-//		
-		if(Integer.parseInt(num) % 5 == 0) {
-			model.addAttribute("nextPage",true);
-			System.out.println(pet.petCounter());
-		}else {
-			model.addAttribute("nextPage",false);
-		}
-
-
+		
 		System.out.println(num);
 		
 		model.addAttribute("petList",pet.petPageList(Integer.parseInt(num)));
 		model.addAttribute("petCounter",pet.petCounter());
 		model.addAttribute("num",num);
-		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num)));
+		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num),pet.petCounter()));
 		
 		return "animal";
 	}
@@ -186,10 +176,25 @@ public class MyController {
 		return pet.petCounter();
 	}
 	
-	@RequestMapping("/find")
+	@RequestMapping({"/find","/find/1"})
 	public String find(Model model) {
 
-		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
+		System.out.println(pet.getPagination(1,lostPet.lostPetCount()));
+		model.addAttribute("newLostPetList", lostPet.findPetList(1));
+		model.addAttribute("pageList",pet.getPagination(1,lostPet.lostPetCount()));
+		
+		return "find";
+	}
+
+	@RequestMapping("/find/{num}")
+	public String findPage(@PathVariable("num") String num,Model model) {
+
+		System.out.println(pet.getPagination(Integer.parseInt(num),lostPet.lostPetCount()));
+//		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num)));
+		System.out.println(num);
+		model.addAttribute("newLostPetList", lostPet.findPetList(Integer.parseInt(num)));
+		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num),lostPet.lostPetCount()));
+		
 		return "find";
 	}
 	

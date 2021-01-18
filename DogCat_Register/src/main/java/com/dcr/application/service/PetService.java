@@ -65,7 +65,7 @@ public class PetService implements IPetService {
 	}
 
 	@Override
-	public List<PaginationDTO> getPagination(int pageNum) {
+	public List<PaginationDTO> getPagination(int pageNum,int petCount) {
 		// TODO Auto-generated method stub
 
 		final int pageSize = 8;
@@ -73,7 +73,7 @@ public class PetService implements IPetService {
 		
 		ArrayList<PaginationDTO> pageList = new ArrayList<PaginationDTO>();
 		
-		int numPages = (int)Math.ceil((double)dao.petCounter() / pageSize);  //필요한 총 페이지 갯수
+		int numPages = (int)Math.ceil((double)petCount / pageSize);  //필요한 총 페이지 갯수
 		
 		int firstLink = ((pageNum - 1)/paginationSize) * paginationSize + 1;
 		int lastLink = firstLink + paginationSize - 1;

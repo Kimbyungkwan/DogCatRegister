@@ -7,4 +7,12 @@
 	<select id="mainLostPetList" resultType="com.dcr.application.dto.LostPetDTO">
 		select * from lost_pet ORDER BY lost_pet_num DESC LIMIT 4
 	</select>
+	
+	<select id="lostPetCount" resultType="_int">
+		SELECT COUNT(*) FROM lost_pet
+	</select>
+	
+	<select id = "findPetList" resultType="com.dcr.application.dto.LostPetDTO">
+		select * from lost_pet order by lost_pet_num DESC limit #{pageNum},#{pageSize}
+	</select>
 </mapper>

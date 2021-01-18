@@ -12,5 +12,5 @@ public interface IPetService {
 	public int petUpdate(PetDTO dto);
 	public int petCounter();
 	public List<PetDTO> petPageList(int pageNum);
-	public List<PaginationDTO> getPagination(int pageNum);
+	public List<PaginationDTO> getPagination(int pageNum,int petCount);
 }

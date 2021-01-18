@@ -7,6 +7,7 @@
 	<select id="newPetList" resultType="com.dcr.application.dto.PetDTO">
 		select * from pet WHERE pet_status = "생존" ORDER BY pet_num DESC LIMIT 4
 	</select>
+	
 	<insert id="petRegist" parameterType="com.dcr.application.dto.PetDTO">
 	INSERT INTO pet(pet_name,pet_age,pet_type,pet_species,pet_photo,
 					pet_admin,pet_location)
@@ -14,9 +15,11 @@
 		#{pet_admin},#{pet_location}
 	)
 	</insert>
+	
 	<select id="petManage" resultType="com.dcr.application.dto.PetDTO">
 		SELECT * FROM pet WHERE pet_admin = #{userNum} ORDER BY pet_num desc;
 	</select>
+	
 	<update id="petUpdate" parameterType="com.dcr.application.dto.PetDTO">
 	update pet
 	set pet_name= #{pet_name},pet_age= #{pet_age},pet_type= #{pet_type},
@@ -24,8 +27,9 @@
 		pet_location= #{pet_location}
 	where pet_num = #{pet_num}
 	</update>
+	
 	<select id="petCounter" resultType="_int">
-		SELECT COUNT(*) FROM pet;
+		SELECT COUNT(*) FROM pet WHERE pet_status = "생존";
 	</select>
 	
 	<select id="petPageList" resultType="com.dcr.application.dto.PetDTO">
