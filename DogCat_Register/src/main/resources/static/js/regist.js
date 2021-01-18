@@ -66,7 +66,6 @@ const paintPet = (dataList, target) => {
         <input type="text" name="pet_photo" value="${data.pet_photo}" style="display:none;">
         <input type="text" name="pet_admin" value="${data.pet_admin}" style="display:none;">
         <input type="text" name="pet_num" value=${data.pet_num} style="display:none;">
-  
       <form>
     </li>
     `;
@@ -91,6 +90,7 @@ petTable.addEventListener('click', e => {
     }
     postForm[input.name] = input.value;
   });
+  console.log(postForm);
   petDataSetFetch(postForm);
 });
 
@@ -142,7 +142,7 @@ const fetchImg = async img => {
   });
   let result = await response.json();
   petPhoto.value = result.src;
-  registImg.src = result.src;
+  registImg.src = '/static/' + result.src;
   fileForm.value = '';
 };
 
@@ -172,7 +172,7 @@ submitBtn.addEventListener('click', () => {
     postForm[input.name] = input.value;
   });
   if (postForm.pet_photo == '') {
-    postForm.pet_photo = '/upload/images/main_default.png';
+    postForm.pet_photo = '/static/upload/images/main_default.png';
   }
   console.log(postForm);
   setTimeout(() => {
@@ -209,7 +209,7 @@ const petSubmit = async obj => {
     if (input.name === 'pet_admin') return;
     input.value = '';
   });
-  registImg.src = '../images/default/regist__default.jpg';
+  registImg.src = '/static/images/default/regist__default.jpg';
 };
 
 // form reset;

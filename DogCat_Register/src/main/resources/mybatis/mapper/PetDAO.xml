@@ -5,7 +5,7 @@
 <mapper namespace="com.dcr.application.dao.IPetDAO">
 
 	<select id="newPetList" resultType="com.dcr.application.dto.PetDTO">
-		select * from pet ORDER BY pet_num DESC LIMIT 4
+		select * from pet WHERE pet_status = "생존" ORDER BY pet_num DESC LIMIT 4
 	</select>
 	<insert id="petRegist" parameterType="com.dcr.application.dto.PetDTO">
 	INSERT INTO pet(pet_name,pet_age,pet_type,pet_species,pet_photo,
@@ -20,7 +20,7 @@
 	<update id="petUpdate" parameterType="com.dcr.application.dto.PetDTO">
 	update pet
 	set pet_name= #{pet_name},pet_age= #{pet_age},pet_type= #{pet_type},
-		pet_species= #{pet_species}, pet_photo= #{pet_photo},
+		pet_species= #{pet_species}, pet_photo= #{pet_photo},pet_status=#{pet_status},
 		pet_location= #{pet_location}
 	where pet_num = #{pet_num}
 	</update>
@@ -29,6 +29,6 @@
 	</select>
 	
 	<select id="petPageList" resultType="com.dcr.application.dto.PetDTO">
-			select * from pet order by pet_num DESC limit #{pageNum},#{pageSize}
+			select * from pet WHERE pet_status = "생존" order by pet_num DESC limit #{pageNum},#{pageSize}
 	</select>
 </mapper>

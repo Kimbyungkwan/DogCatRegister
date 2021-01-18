@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <!-- css -->
-<link rel="stylesheet" href="../css/navbar.css">
-<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="/static/css/navbar.css">
+<link rel="stylesheet" href="/static/css/login.css">
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
-<script defer src="../js/navbar.js"></script>
-<script defer src="../js/login.js"></script>
+<script defer src="/static/js/navbar.js"></script>
+<script defer src="/static/js/login.js"></script>
 <title>Dog & Cat Register</title>
 </head>
 <body>
@@ -68,7 +68,7 @@
 
     <section class="login__container">
         <div class="login__top-box">
-            <img src="../images/login/login_left-1.png" alt="login">
+            <img src="/static/images/login/login_left-1.png" alt="login">
         </div>
         <div class="login__bottom-box">
             <form class="login__form" method="post" action="/member/login">

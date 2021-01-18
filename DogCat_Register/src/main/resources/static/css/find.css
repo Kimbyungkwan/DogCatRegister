@@ -39,3 +39,41 @@
     filter: drop-shadow(2px 4px 6px black);
   }
 }
+
+/* findAnimal */
+
+.findAnimal {
+  max-width: 1000px;
+  padding: 0%;
+  margin: 0 auto;
+}
+
+.findAnimal__list {
+  width: 100%;
+  padding: 0;
+  padding: 2.5rem 10px;
+}
+
+.findAnimal__list__item {
+  width: 100%;
+  display: flex;
+}
+
+.image-area,
+.findAnimal__content {
+  width: 50%;
+}
+.image-area {
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-area > img {
+  width: 100%;
+}
+
+.findAnimal__content {
+  text-align: right;
+}

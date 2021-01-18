@@ -78,11 +78,13 @@ public class PetService implements IPetService {
 		int firstLink = ((pageNum - 1)/paginationSize) * paginationSize + 1;
 		int lastLink = firstLink + paginationSize - 1;
 		
+		
 		if(lastLink > numPages) {
 			lastLink = numPages; //마지막 페이지가 총 페이지 갯수보다 크면 총 페이지 갯수로 수정
 		}
 		
 		if(firstLink > 1) {
+			pageList.add(new PaginationDTO("처음", 1, false));
 			pageList.add(new PaginationDTO("이전", pageNum -1, false));
 		}
 		
@@ -93,6 +95,7 @@ public class PetService implements IPetService {
 		if(lastLink < numPages) {
 			
 			pageList.add(new PaginationDTO("다음", pageNum + 1, false));
+			pageList.add(new PaginationDTO("끝", numPages, false));
 		}
 		
 		return pageList;

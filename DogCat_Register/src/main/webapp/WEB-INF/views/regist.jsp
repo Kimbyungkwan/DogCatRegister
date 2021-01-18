@@ -8,14 +8,14 @@
 <!-- bootStrab -->
 
 <!-- css -->
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/regist.css">
+<link rel="stylesheet" href="/static/css/navbar.css">
+<link rel="stylesheet" href="/static/css/regist.css">
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
-<script defer src="js/navbar.js"></script>
-<script defer src="js/regist.js"></script>
+<script defer src="/static/js/navbar.js"></script>
+<script defer src="/static/js/regist.js"></script>
 
 
 <title>Dog & Cat Register</title>
@@ -80,7 +80,7 @@
                 
             </div>
             <div class="img__box">
-                <img class="regist__img" src="../images/default/regist__default.jpg" alt="regist__default">
+                <img class="regist__img" src="/static/images/default/regist__default.jpg" alt="regist__default">
                 <label for="file__form">
                     <i class="file__icon far fa-arrow-alt-circle-up"></i>
                 </label>

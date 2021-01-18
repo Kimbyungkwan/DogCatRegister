@@ -113,7 +113,7 @@ ul {
   height: 50vh;
   min-height: 20rem;
   margin-top: 4.5rem;
-  background-image: url('/images/main/lost-dog.jpg');
+  background-image: url('/static/images/main/lost-dog.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

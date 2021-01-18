@@ -187,7 +187,9 @@ public class MyController {
 	}
 	
 	@RequestMapping("/find")
-	public String find() {
+	public String find(Model model) {
+
+		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
 		return "find";
 	}
 	

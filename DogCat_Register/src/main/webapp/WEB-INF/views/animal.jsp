@@ -7,14 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <!-- css -->
-<link rel="stylesheet" href="/css/navbar.css">
-<link rel="stylesheet" href="/css/animal.css">
+<link rel="stylesheet" href="/static/css/navbar.css">
+<link rel="stylesheet" href="/static/css/animal.css">
 <!-- google font -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/66d103909a.js" crossorigin="anonymous"></script>
-<script defer src="/js/navbar.js"></script>
-<script defer src="/js/animal.js"></script>
+<script defer src="/static/js/navbar.js"></script>
+<script defer src="/static/js/animal.js"></script>
 <title>Dog & Cat Register</title>
 </head>
 <body>
@@ -79,7 +79,7 @@
         <c:forEach items="${petList}" var="pet">
         	<li class="pet">
                 <div class="pet__thmb__box">
-                    <img class="pet__thmb" src="${pet.pet_photo}" alt="${pet.pet_num}+${pet.pet_name}">
+                    <img class="pet__thmb" src="/static/${pet.pet_photo}" alt="${pet.pet_num}+${pet.pet_name}">
                 </div>
                 <dl class="pet__content">
                     <dt>이름</dt>   
