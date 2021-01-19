@@ -14,5 +14,5 @@ public interface ILostPetDAO {
 	public List<LostPetDTO> mainLostPetList();
 	public int lostPetCount();
 	public List<LostPetDTO> findPetList(Map<String,Integer> page);
-	
+	public LostPetDTO lostPetDetail(String num);
 }

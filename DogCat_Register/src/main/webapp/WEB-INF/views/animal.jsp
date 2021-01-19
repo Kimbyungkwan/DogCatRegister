@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!-- css -->
 <link rel="stylesheet" href="/static/css/navbar.css">
 <link rel="stylesheet" href="/static/css/animal.css">
@@ -48,14 +50,14 @@
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="navbar__menu__item logout">
-                            <a href="member/logout">
+                            <a href="/member/logout">
                                 로그아웃
                             </a> 
                         </li>
                     </c:when>
                     <c:otherwise>  
                         <li class="navbar__menu__item login">
-                            <a href="member/login">
+                            <a href="/member/login">
                                 로그인
                             </a> 
                         </li>

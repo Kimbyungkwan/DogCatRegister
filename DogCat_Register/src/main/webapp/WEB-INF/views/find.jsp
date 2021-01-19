@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!-- css -->
 <link rel="stylesheet" href="/static/css/navbar.css">
 <link rel="stylesheet" href="/static/css/find.css">
@@ -48,14 +50,14 @@
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
                         <li class="navbar__menu__item logout">
-                            <a href="member/logout">
+                            <a href="/member/logout">
                                 로그아웃
                             </a> 
                         </li>
                     </c:when>
                     <c:otherwise>  
                         <li class="navbar__menu__item login">
-                            <a href="member/login">
+                            <a href="/member/login">
                                 로그인
                             </a> 
                         </li>
@@ -78,12 +80,30 @@
     <section class="findAnimal">
         <ul class="findAnimal__list">
         	<c:forEach items="${newLostPetList}" var="dto">
-	            <li class="findAnimal__list__item">
+	            <li class="findAnimal__list__item" data-lost-pet-num="${dto.lost_pet_num}">
 	                <div class="image-area">
 	                    <img src="/static/${dto.lost_pet_photo}" alt="${dto.lost_pet_admin}_${dto.lost_pet_name}">
 	                </div>
 	                <div class="findAnimal__content">
-	                    <div class="content-top">
+                        <dl class="content-top">
+                            <dt>이름</dt>   
+                            <dd class="lost__pet__name">${dto.lost_pet_name}</dd>
+                            <dt>성별</dt>
+                            <dd class="lost__pet__sex">${dto.lost_pet_sex}</dd>
+                            <dt>나이</dt>
+                            <dd class="lost__pet__age">${dto.lost_pet_age}</dd>
+                            <dt>품종</dt>
+                            <dd class="lost__pet__species">${dto.lost_pet_species}</dd>
+                            <dt>거주지</dt>
+                            <dd class="lost__pet__location">${dto.lost_pet_location}</dd>
+                            
+                            <dd class="lost__pet__content">
+                                <c:if test="${fn:length(dto.lost_pet_content) gt 50}">
+                                ${fn:substring(dto.lost_pet_content,0,50) }...
+                                </c:if>
+                            </dd>
+                        </dl>
+	                    <!-- <div class="content-top">
 	                        <p>${dto.lost_pet_name}</p>
 	                        <p>${dto.lost_pet_sex}</p>
 	                        <p>${dto.lost_pet_age}살</p>
@@ -92,8 +112,8 @@
 	                        <c:if test="${fn:length(dto.lost_pet_content) gt 50}">
 	                        	${fn:substring(dto.lost_pet_content,0,50) }...
 							</c:if>
-	                        <!-- <p>${dto.lost_pet_content}</p> -->
-	                    </div>
+	                         <p>${dto.lost_pet_content}</p>
+	                    </div> -->
 	                </div>
 	            </li>
 		   </c:forEach>
@@ -110,6 +130,12 @@
 			    </c:choose>
 		    </c:forEach>
         </div>
+    </section>
+    <section class="lost__pet__detail__container">
+        <div class="lost__pet__detail">
+        
+        </div>
+        <i class="far fa-times-circle close-btn"></i>
     </section>
 </body>
 </html>

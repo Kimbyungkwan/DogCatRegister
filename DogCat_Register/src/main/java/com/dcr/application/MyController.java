@@ -27,6 +27,7 @@ import com.dcr.application.dto.UserDTO;
 import com.dcr.application.service.ILostPetService;
 import com.dcr.application.service.IPetService;
 import com.dcr.application.service.IUserService;
+import com.dcr.application.util.FileUpload;
 import com.dcr.application.util.LoginCommand;
 import com.dcr.application.util.UserNumCreate;
 import com.oreilly.servlet.MultipartRequest;
@@ -44,6 +45,8 @@ public class MyController {
 	@Autowired
 	IUserService user;
 
+	@Autowired
+	FileUpload file;
 	
 	@RequestMapping(value = {"/","/home"})
 	public String root(Model model) throws Exception {
@@ -147,7 +150,6 @@ public class MyController {
 	@RequestMapping(value={"/animal","/animal/1"})
 	public String animal(HttpServletRequest request,Model model) throws Exception {
 
-		System.out.println(model);
 		pet.petPageList(1);
 		model.addAttribute("petList",pet.petPageList(1));
 		model.addAttribute("petCounter",pet.petCounter());
@@ -179,7 +181,6 @@ public class MyController {
 	@RequestMapping({"/find","/find/1"})
 	public String find(Model model) {
 
-		System.out.println(pet.getPagination(1,lostPet.lostPetCount()));
 		model.addAttribute("newLostPetList", lostPet.findPetList(1));
 		model.addAttribute("pageList",pet.getPagination(1,lostPet.lostPetCount()));
 		
@@ -188,14 +189,21 @@ public class MyController {
 
 	@RequestMapping("/find/{num}")
 	public String findPage(@PathVariable("num") String num,Model model) {
-
-		System.out.println(pet.getPagination(Integer.parseInt(num),lostPet.lostPetCount()));
-//		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num)));
 		System.out.println(num);
 		model.addAttribute("newLostPetList", lostPet.findPetList(Integer.parseInt(num)));
 		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num),lostPet.lostPetCount()));
 		
 		return "find";
+	}
+	
+	@ResponseBody 
+	@RequestMapping("/find/lostpet/{num}")
+	public HashMap<String, Object> lostPetDetail(@PathVariable("num")String num){
+		HashMap<String,Object> map = new HashMap<String, Object>();
+
+		System.out.println(num);
+		map.put("test", lostPet.lostPetDetail(num) );
+		return map;
 	}
 	
 	@RequestMapping("/regist")
@@ -211,35 +219,8 @@ public class MyController {
 	@ResponseBody 
 	@RequestMapping(value="/regist/fileUpload", method=RequestMethod.POST)
 	public String fileUpload(HttpServletRequest request) {
-		JSONObject obj = new JSONObject();
-		int size = 1024 * 1024 * 5; // 5M 제한
-		String file = "";
-		String oriFile = "";
-		try {
-			String path = ResourceUtils.getFile("classpath:static/upload/images/").toPath().toString();
-			System.out.println(path);
-			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8",
-					new DefaultFileRenamePolicy());
-			Enumeration files = multi.getFileNames();
-			String str = (String)files.nextElement();
-			
-			file = multi.getFilesystemName(str);
-			oriFile = multi.getOriginalFileName(str);
-			
-			obj.put("success", new Integer(1));
-			obj.put("desc","업로드 성공");
-			obj.put("src","/upload/images/"+file);
-
-			System.out.println("=====");
-			System.out.println("업로드 성공");
-			System.out.println("=====");
-		}catch(Exception e) {
-			e.printStackTrace();
-			obj.put("success", new Integer(0));
-			obj.put("desc", "업로드 실패");
-		}
-
-		return obj.toJSONString();
+		
+		return file.fileUpload(request);
 	}
 	
 	@ResponseBody

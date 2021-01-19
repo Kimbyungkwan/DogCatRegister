@@ -45,6 +45,12 @@ public class LostPetService implements ILostPetService{
 		
 		return dao.findPetList(page);
 	}
+
+	@Override
+	public LostPetDTO lostPetDetail(String num) {
+		// TODO Auto-generated method stub
+		return dao.lostPetDetail(num);
+	}
 	
 	
 }
