@@ -74,7 +74,7 @@
             잃어버린 동물을 같이 찾아주세요.<br>
             <img class="find__hero__title-img" src="/static/images/find/find__hero.png"/>
         </h4>
-        <p class="find__hero__regist">등록하기</p>
+        <p class="find__hero__regist">찾아주세요</p>
     </section>
    
     <section class="findAnimal">
@@ -135,7 +135,45 @@
         <div class="lost__pet__detail">
         
         </div>
-        <i class="far fa-times-circle close-btn"></i>
+        <i class="far fa-times-circle detail__close-btn"></i>
+    </section>
+    <section class="lost__pet__regist__container">
+        <!-- <c:if test="${empty sessionScope.user}">
+            <div class="user__empty__modal">
+                <p> 로그인이 필요합니다.</p>
+                  <h4 class="signUp__complete" onclick="signUpComplete()" >
+                    닫기
+                  </h4>
+            </div>
+        </c:if> -->
+        <div class="img__box">
+            <img class="regist__img" src="/static/images/default/regist__default.jpg" alt="regist__default">
+            <label for="file__form">
+                <i class="file__icon far fa-arrow-alt-circle-up"></i>
+            </label>
+            <input id="file__form" class="file__form form__upload__photo" type="file" name="filename" accept=".jpg,.jpeg,.png" >
+        </div>
+        <div class="upload__form__container">
+            <div class="upload__form">
+                <div class="form__slide-left">
+                    <input type="text" name="lost_pet_admin" value="${user.user_Num}" class="form__user_Num" >
+                    <input class="form__pet__name" type="text" name="lost_pet_name" placeholder="*동물 이름" maxlength="20" >
+                    <input type="text" name="lost_pet_age"placeholder="동물 나이">
+                    <input type="text" name="lost_pet_species" placeholder="품종" maxlength="20" >
+                    <input class="form__pet__photo" type="text" name="lost_pet_photo">
+                    <input class="form__pet__location" type="text" name="lost_pet_location" placeholder="*잃어버린 곳 ex)서울/중구" maxlength="20">
+                </div>
+                <div class="form__slide-right">
+                    <p>내용</p>
+                    <textarea class="form__pet__content" name="lost_pet_location" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="button__box">
+                <i class="fas fa-arrow-circle-right form__move__button"></i>
+                <i class="fas fa-times-circle form__close-btn"></i>
+                <i class="far fa-paper-plane form__send__button"></i>
+            </div>
+        </div>
     </section>
 </body>
 </html>

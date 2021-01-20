@@ -1,7 +1,7 @@
 const findAnimalItems = document.querySelectorAll('.findAnimal__list__item');
 const detailWindow = document.querySelector('.lost__pet__detail__container');
 
-const closeBtn = document.querySelector('.close-btn');
+const detailCloseBtn = document.querySelector('.detail__close-btn');
 const containerCloseBtn = document.querySelector(
   '.lost__pet__detail__container'
 );
@@ -9,7 +9,7 @@ const containerCloseBtn = document.querySelector(
 
 detailWindow.addEventListener('click', e => {
   console.log(e.target);
-  if (e.target == closeBtn || e.target == detailWindow) {
+  if (e.target == detailCloseBtn || e.target == detailWindow) {
     detailWindow.style.display = 'none';
   }
 });
@@ -18,12 +18,12 @@ detailWindow.addEventListener('click', e => {
 
 findAnimalItems.forEach(item => {
   item.addEventListener('click', async e => {
-    const data = await fetchPet(item.dataset.lostPetNum);
+    const data = await fetchLostPetList(item.dataset.lostPetNum);
     dataPainting(data);
   });
 });
 
-const fetchPet = async petNum => {
+const fetchLostPetList = async petNum => {
   const response = await fetch(`/find/lostpet/${petNum}`, {
     method: 'post',
     headers: {
@@ -74,4 +74,68 @@ const dataPainting = obj => {
             </div>
     </div>
   `;
+};
+
+const lostPetRegistOpenBtn = document.querySelector('.find__hero__title-img');
+const lostPetRegistCloseBtn = document.querySelector('.form__close-btn');
+const lostPetRegistContainer = document.querySelector(
+  '.lost__pet__regist__container'
+);
+const findPetHero = document.querySelector('.find__hero');
+const findAnimalContainer = document.querySelector('.findAnimal');
+
+lostPetRegistOpenBtn.addEventListener('click', () => {
+  findAnimalContainer.style.position = 'fixed';
+  lostPetRegistContainer.style.display = 'flex';
+});
+lostPetRegistCloseBtn.addEventListener('click', () => {
+  findAnimalContainer.style.position = '';
+  lostPetRegistContainer.style.display = 'none';
+  registImg.src = '/static/images/default/regist__default.jpg';
+});
+const uploadForm = document.querySelector('.upload__form');
+const formMoveBtn = document.querySelector('.form__move__button');
+
+formMoveBtn.addEventListener('click', () => {
+  uploadForm.classList.toggle('upload__form__move');
+  formMoveBtn.classList.toggle('form__move__button-turn');
+});
+
+// img fetch
+const fileForm = document.querySelector('.file__form');
+const petPhoto = document.querySelector('.form__pet__photo');
+const registImg = document.querySelector('.regist__img');
+
+fileForm.addEventListener('click', e => {
+  e.preventDefault();
+  console.log(uploadForm.getElementsByTagName('input'));
+  console.log([...uploadForm.getElementsByTagName('textarea')][0].value);
+  // Array.forEach.classList(uploadForm,()=>{
+
+  // })
+});
+
+// fileForm.addEventListener('change', e => {
+//   fetchLostPetRegist(e.target.files[0]);
+// });
+
+const fetchLostPetRegist = async img => {
+  console.log(img);
+  const formData = new FormData();
+  formData.append('imageFile', img);
+  let response = await fetch('lost/fileUpload', {
+    method: 'POST',
+    body: formData,
+  });
+  let result = await response.json();
+  console.log(result);
+  petPhoto.value = result.src;
+  registImg.src = '/static/' + result.src;
+  fileForm.value = '';
+};
+
+// user Session empty close widow
+const signUpComplete = () => {
+  findAnimalContainer.style.position = '';
+  lostPetRegistContainer.style.display = 'none';
 };

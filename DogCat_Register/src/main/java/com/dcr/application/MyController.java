@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dcr.application.dto.LostPetDTO;
 import com.dcr.application.dto.PetDTO;
 import com.dcr.application.dto.UserDTO;
 import com.dcr.application.service.ILostPetService;
@@ -204,6 +205,31 @@ public class MyController {
 		System.out.println(num);
 		map.put("test", lostPet.lostPetDetail(num) );
 		return map;
+	}
+	
+	@ResponseBody 
+	@RequestMapping(value="/lost/fileUpload", method=RequestMethod.POST)
+	public String fileUpload__lost(HttpServletRequest request) {
+		
+		return file.fileUpload(request);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/lost/regist", method=RequestMethod.POST)
+	public int petRegist__lost(@RequestBody LostPetDTO dto) {
+		System.out.println(dto);
+		int complete;
+		
+		try{
+//			pet.petRegist(dto);
+			complete=1;
+			}
+		catch (Exception e) {
+			// TODO: handle exception
+			complete=0;
+		}
+		
+		return complete;
 	}
 	
 	@RequestMapping("/regist")
