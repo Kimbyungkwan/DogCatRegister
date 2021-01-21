@@ -313,6 +313,9 @@ ul {
   font-size: 0.8rem;
 }
 
+.content-right-bottom {
+  overflow-wrap: anywhere;
+}
 /* Notice */
 .notice {
   margin-bottom: 50px;

@@ -9,4 +9,5 @@ public interface ILostPetService {
 	public int lostPetCount();
 	public List<LostPetDTO> findPetList(int pageNum);
 	public LostPetDTO lostPetDetail(String num);
+	public int lostPetRegist(LostPetDTO dto);
 }

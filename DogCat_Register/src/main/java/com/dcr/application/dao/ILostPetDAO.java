@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.dcr.application.dto.LostPetDTO;
+import com.dcr.application.dto.PetDTO;
 
 @Mapper
 public interface ILostPetDAO {
@@ -15,4 +16,5 @@ public interface ILostPetDAO {
 	public int lostPetCount();
 	public List<LostPetDTO> findPetList(Map<String,Integer> page);
 	public LostPetDTO lostPetDetail(String num);
+	public int lostPetRegist(LostPetDTO dto);
 }

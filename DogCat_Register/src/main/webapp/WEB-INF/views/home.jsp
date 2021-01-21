@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,13 +130,21 @@
 	                <div class="lostAnimal__content">
 	                    <div class="content-left">
 	                        <p>${dto.lost_pet_name}</p>
-	                        <p>${dto.lost_pet_sex}</p>
 	                        <p>${dto.lost_pet_age}살</p>
 	                        <p>${dto.lost_pet_species}</p>
+	                        <p>${dto.lost_pet_date}</p>
 	                    </div>
 	                    <div class="content-right">
 	                        <p>${dto.lost_pet_location}</p>
-	                        <p>${dto.lost_pet_content}</p>
+	                        
+                            <c:choose>
+                                <c:when  test="${fn:length(dto.lost_pet_content) gt 50}">  
+                                    <p class="content-right-bottom">${fn:substring(dto.lost_pet_content,0,50) }...</p>
+                                </c:when>         
+                                <c:otherwise>
+                                    <p class="content-right-bottom">${dto.lost_pet_content}</p>
+                                </c:otherwise>
+                            </c:choose>
 	                    </div>
 	                </div>
 	            </li>

@@ -219,6 +219,7 @@
   text-align: center;
   font-size: 0.8rem;
   padding: 0.5rem;
+  overflow-wrap: anywhere;
 }
 @media all and (max-width: 650px) {
   .find__hero__title {
@@ -339,11 +340,14 @@
   margin-bottom: 0.5rem;
 }
 
+.upload__form > * > .harf__form {
+  width: 148px;
+}
+
 .upload__form > * > input::placeholder {
   opacity: 0.5;
   font-size: 1rem;
 }
-
 .form__user_Num,
 .form__upload__photo,
 .form__pet__photo {
@@ -361,6 +365,19 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
+  position: relative;
+}
+.empty__message {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  font-size: 0.8rem;
+  color: var(--color-red);
+  display: none;
+  transition: all 0.15s ease-in-out;
+}
+.empty__message__showing {
+  display: block;
 }
 .form__move__button {
   cursor: pointer;

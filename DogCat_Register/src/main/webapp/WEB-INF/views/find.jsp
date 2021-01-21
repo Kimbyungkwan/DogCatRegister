@@ -88,32 +88,28 @@
                         <dl class="content-top">
                             <dt>이름</dt>   
                             <dd class="lost__pet__name">${dto.lost_pet_name}</dd>
-                            <dt>성별</dt>
-                            <dd class="lost__pet__sex">${dto.lost_pet_sex}</dd>
                             <dt>나이</dt>
                             <dd class="lost__pet__age">${dto.lost_pet_age}</dd>
                             <dt>품종</dt>
                             <dd class="lost__pet__species">${dto.lost_pet_species}</dd>
                             <dt>거주지</dt>
                             <dd class="lost__pet__location">${dto.lost_pet_location}</dd>
-                            
+                            <dt>잃어버린 날</dt>
+                            <dd class="lost__pet__date">${dto.lost_pet_date}</dd>
+
                             <dd class="lost__pet__content">
-                                <c:if test="${fn:length(dto.lost_pet_content) gt 50}">
-                                ${fn:substring(dto.lost_pet_content,0,50) }...
-                                </c:if>
+                                
+                                <c:choose>
+                                    <c:when  test="${fn:length(dto.lost_pet_content) gt 50}">  
+                                        ${fn:substring(dto.lost_pet_content,0,50) }...
+                                    </c:when>         
+                                    <c:otherwise>
+                                        ${dto.lost_pet_content}
+                                    </c:otherwise>
+                                </c:choose>
                             </dd>
                         </dl>
-	                    <!-- <div class="content-top">
-	                        <p>${dto.lost_pet_name}</p>
-	                        <p>${dto.lost_pet_sex}</p>
-	                        <p>${dto.lost_pet_age}살</p>
-	                        <p>${dto.lost_pet_species}</p>
-	                        <p>${dto.lost_pet_location}</p>
-	                        <c:if test="${fn:length(dto.lost_pet_content) gt 50}">
-	                        	${fn:substring(dto.lost_pet_content,0,50) }...
-							</c:if>
-	                         <p>${dto.lost_pet_content}</p>
-	                    </div> -->
+	                    
 	                </div>
 	            </li>
 		   </c:forEach>
@@ -138,14 +134,14 @@
         <i class="far fa-times-circle detail__close-btn"></i>
     </section>
     <section class="lost__pet__regist__container">
-        <!-- <c:if test="${empty sessionScope.user}">
+        <c:if test="${empty sessionScope.user}">
             <div class="user__empty__modal">
                 <p> 로그인이 필요합니다.</p>
                   <h4 class="signUp__complete" onclick="signUpComplete()" >
                     닫기
                   </h4>
             </div>
-        </c:if> -->
+        </c:if>
         <div class="img__box">
             <img class="regist__img" src="/static/images/default/regist__default.jpg" alt="regist__default">
             <label for="file__form">
@@ -157,18 +153,23 @@
             <div class="upload__form">
                 <div class="form__slide-left">
                     <input type="text" name="lost_pet_admin" value="${user.user_Num}" class="form__user_Num" >
-                    <input class="form__pet__name" type="text" name="lost_pet_name" placeholder="*동물 이름" maxlength="20" >
-                    <input type="text" name="lost_pet_age"placeholder="동물 나이">
+                    <input class="form__pet__name harf__form" type="text" name="lost_pet_name" placeholder="*동물 이름" maxlength="20" >
+                    <input class=" harf__form" type="text" name="lost_pet_age"placeholder="동물 나이">
                     <input type="text" name="lost_pet_species" placeholder="품종" maxlength="20" >
                     <input class="form__pet__photo" type="text" name="lost_pet_photo">
                     <input class="form__pet__location" type="text" name="lost_pet_location" placeholder="*잃어버린 곳 ex)서울/중구" maxlength="20">
+                    <input type="text" name="lost_pet_date" placeholder="잃어버린 날짜" maxlength="20" >
                 </div>
                 <div class="form__slide-right">
                     <p>내용</p>
-                    <textarea class="form__pet__content" name="lost_pet_location" id="" cols="30" rows="10"></textarea>
+                    <textarea class="form__pet__content" name="lost_pet_content" id="" cols="30" rows="10"></textarea>
                 </div>
             </div>
+            
             <div class="button__box">
+                <div class="empty__message">
+                    비어있는 칸이 존재합니다
+                </div>
                 <i class="fas fa-arrow-circle-right form__move__button"></i>
                 <i class="fas fa-times-circle form__close-btn"></i>
                 <i class="far fa-paper-plane form__send__button"></i>

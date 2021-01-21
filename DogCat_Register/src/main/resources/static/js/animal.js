@@ -1,21 +1,14 @@
 window.onload = function () {
   getAnimalCount().then(count => {
-    animalCounter(count, 20);
+    animalCounter(count);
     // (count * 20) / count
   });
 };
 
 // animal count get
-const animalCounter = (count, sec) => {
+const animalCounter = count => {
   const animalCount = document.querySelector('.animal__hero__title-count');
-  let i = 0;
-  const counter = setInterval(() => {
-    if (i <= count) {
-      animalCount.innerHTML = i++;
-    } else {
-      clearInterval(counter);
-    }
-  }, sec);
+  animalCount.innerHTML = count;
 };
 
 const getAnimalCount = async () => {

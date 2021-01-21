@@ -19,4 +19,13 @@
 	<select id="lostPetDetail" resultType="com.dcr.application.dto.LostPetDTO">
 		select * from lost_pet where lost_pet_num = #{num}
 	</select>
+	
+	<insert id="lostPetRegist" parameterType="com.dcr.application.dto.LostPetDTO">
+	INSERT INTO lost_pet(lost_pet_name,lost_pet_age,lost_pet_content,lost_pet_species,lost_pet_photo,
+					lost_pet_admin,lost_pet_location,lost_pet_date)
+	VALUES(#{lost_pet_name},#{lost_pet_age},#{lost_pet_content},#{lost_pet_species},#{lost_pet_photo},
+		#{lost_pet_admin},#{lost_pet_location},#{lost_pet_date}
+	)
+	</insert>
+	
 </mapper>

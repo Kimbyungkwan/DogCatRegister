@@ -8,7 +8,6 @@ const containerCloseBtn = document.querySelector(
 // detail창 닫기
 
 detailWindow.addEventListener('click', e => {
-  console.log(e.target);
   if (e.target == detailCloseBtn || e.target == detailWindow) {
     detailWindow.style.display = 'none';
   }
@@ -43,7 +42,6 @@ const dataPainting = obj => {
     lost_pet_content: content,
     lost_pet_location: location,
     lost_pet_photo: photo,
-    lost_pet_sex: sex,
     lost_pet_species: species,
     lost_pet_date: lostDate,
   } = obj;
@@ -58,15 +56,13 @@ const dataPainting = obj => {
         <dl class="detail__content-top">
             <dt>이름</dt>   
             <dd class="detail__lost__pet__name">${name}</dd>
-            <dt>성별</dt>
-            <dd class="detail__lost__pet__sex">${sex}</dd>
             <dt>나이</dt>
             <dd class="detail__lost__pet__age">${age}</dd>
             <dt>품종</dt>
             <dd class="detail__lost__pet__species">${species}</dd>
             <dt>거주지</dt>
             <dd class="detail__lost__pet__location">${location}</dd>
-            <dt>잃어버린 날짜</dt>
+            <dt>잃어버린 날</dt>
             <dd class="detail__lost__pet__lostDate">${lostDate}</dd>
         </dl>
             <div class="detail__lost__pet__content">
@@ -106,18 +102,9 @@ const fileForm = document.querySelector('.file__form');
 const petPhoto = document.querySelector('.form__pet__photo');
 const registImg = document.querySelector('.regist__img');
 
-fileForm.addEventListener('click', e => {
-  e.preventDefault();
-  console.log(uploadForm.getElementsByTagName('input'));
-  console.log([...uploadForm.getElementsByTagName('textarea')][0].value);
-  // Array.forEach.classList(uploadForm,()=>{
-
-  // })
+fileForm.addEventListener('change', e => {
+  fetchLostPetRegist(e.target.files[0]);
 });
-
-// fileForm.addEventListener('change', e => {
-//   fetchLostPetRegist(e.target.files[0]);
-// });
 
 const fetchLostPetRegist = async img => {
   console.log(img);
@@ -138,4 +125,50 @@ const fetchLostPetRegist = async img => {
 const signUpComplete = () => {
   findAnimalContainer.style.position = '';
   lostPetRegistContainer.style.display = 'none';
+};
+
+const formSendBtn = document.querySelector('.form__send__button');
+const emptyMessage = document.querySelector('.empty__message');
+const FORM_LIST_LENGTH = 8;
+
+formSendBtn.addEventListener('click', () => {
+  console.log(formEmptyChecker(formCreator(), FORM_LIST_LENGTH));
+  if (!formEmptyChecker(formCreator(), 8)) {
+    emptyMessage.classList.add('empty__message__showing');
+    return;
+  }
+  petSubmit(formCreator());
+});
+
+const formCreator = () => {
+  const postForm = {};
+  const inputDatas = uploadForm.getElementsByTagName('input');
+  const inputDataContent = uploadForm.getElementsByTagName('textarea')[0];
+  Array.prototype.forEach.call(inputDatas, data => {
+    postForm[data.name] = data.value;
+  });
+  postForm[inputDataContent.name] = inputDataContent.value;
+  return postForm;
+};
+
+const formEmptyChecker = (obj, formListLength) => {
+  const checker = Object.keys(obj).filter(key => {
+    if (obj[key]) return key;
+  });
+  return checker.length == formListLength;
+};
+
+const petSubmit = async obj => {
+  let response = await fetch('lost/regist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(obj),
+  });
+  let result = await response.json();
+  console.log(result);
+
+  //폼지우기
+  registImg.src = '/static/images/default/regist__default.jpg';
 };

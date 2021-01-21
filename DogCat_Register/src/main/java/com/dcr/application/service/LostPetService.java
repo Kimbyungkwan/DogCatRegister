@@ -51,6 +51,13 @@ public class LostPetService implements ILostPetService{
 		// TODO Auto-generated method stub
 		return dao.lostPetDetail(num);
 	}
+
+	@Override
+	public int lostPetRegist(LostPetDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.lostPetRegist(dto);
+	}
+
 	
 	
 }

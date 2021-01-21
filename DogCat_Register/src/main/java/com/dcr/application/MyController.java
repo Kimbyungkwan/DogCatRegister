@@ -53,7 +53,6 @@ public class MyController {
 	public String root(Model model) throws Exception {
 		model.addAttribute("newPetlist", pet.newPetList());
 		model.addAttribute("newLostPetList", lostPet.mainLostPetList());
-
 		return "home";
 	}
 
@@ -221,7 +220,7 @@ public class MyController {
 		int complete;
 		
 		try{
-//			pet.petRegist(dto);
+			lostPet.lostPetRegist(dto);
 			complete=1;
 			}
 		catch (Exception e) {
