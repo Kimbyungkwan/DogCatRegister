@@ -140,10 +140,11 @@ formSendBtn.addEventListener('click', () => {
   petSubmit(formCreator());
 });
 
+const inputDatas = uploadForm.getElementsByTagName('input');
+const inputDataContent = uploadForm.getElementsByTagName('textarea')[0];
+
 const formCreator = () => {
   const postForm = {};
-  const inputDatas = uploadForm.getElementsByTagName('input');
-  const inputDataContent = uploadForm.getElementsByTagName('textarea')[0];
   Array.prototype.forEach.call(inputDatas, data => {
     postForm[data.name] = data.value;
   });
@@ -169,6 +170,22 @@ const petSubmit = async obj => {
   let result = await response.json();
   console.log(result);
 
+  window.location.reload();
+
   //폼지우기
-  registImg.src = '/static/images/default/regist__default.jpg';
+  // registImg.src = '/static/images/default/regist__default.jpg';
+  // findAnimalContainer.style.position = '';
+  // lostPetRegistContainer.style.display = 'none';
+  // resetForm(uploadForm.getElementsByTagName('input'), input => {
+  //   if (input.name === 'lost_pet_admin') return;
+  //   input.value = '';
+  // });
+};
+
+const resetForm = (target, callback) => {
+  Array.prototype.forEach.call(target, input => {
+    console.log(input);
+    callback(input);
+    inputDataContent.value = '';
+  });
 };

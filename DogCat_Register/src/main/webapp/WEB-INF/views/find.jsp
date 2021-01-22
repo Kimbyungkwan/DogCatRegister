@@ -162,7 +162,7 @@
                 </div>
                 <div class="form__slide-right">
                     <p>내용</p>
-                    <textarea class="form__pet__content" name="lost_pet_content" id="" cols="30" rows="10"></textarea>
+                    <textarea class="form__pet__content" name="lost_pet_content" maxlength="500" cols="30" rows="10"></textarea>
                 </div>
             </div>
             

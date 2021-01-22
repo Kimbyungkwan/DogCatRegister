@@ -113,6 +113,7 @@
   width: 100%;
   text-align: center;
   font-size: 0.8rem;
+  overflow-wrap: anywhere;
 }
 
 .findAnimal__list__item:hover {
