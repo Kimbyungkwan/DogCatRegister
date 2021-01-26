@@ -86,7 +86,7 @@ public class MyController {
 		try {
 			model.addAttribute("user_id", loginCommand.getUser_id());
 			model.addAttribute("user_pw", loginCommand.getUser_password());
-			System.out.println("======");
+			
 			if(user.userCheck(loginCommand).getUser_id().equals(loginCommand.getUser_id()) &&
 				user.userCheck(loginCommand).getUser_password().equals(loginCommand.getUser_password())) {
 			}
@@ -108,8 +108,6 @@ public class MyController {
 //		session에 데이터 user데이터 확인후 존재하면 초기화 
 //		메인페이지로 이동.
 		if(session.getAttribute("user") != null) {
-			System.out.println(session.getAttribute("user"));
-			System.out.println("session user delete");
 			session.invalidate();
 		}
 		return"redirect:/home";
@@ -122,7 +120,6 @@ public class MyController {
 		
 		dto.setUser_Num(UNC.createNum());
 		
-		System.out.println(dto);
 		if(user.signUp(dto) == 1) {
 			map.put("message", "가입 완료");
 		}else {
@@ -162,8 +159,6 @@ public class MyController {
 	@RequestMapping("/animal/{num}")
 	public String animalPage(@PathVariable("num") String num,Model model) throws Exception {
 		
-		System.out.println(num);
-		
 		model.addAttribute("petList",pet.petPageList(Integer.parseInt(num)));
 		model.addAttribute("petCounter",pet.petCounter());
 		model.addAttribute("num",num);
@@ -189,7 +184,6 @@ public class MyController {
 
 	@RequestMapping("/find/{num}")
 	public String findPage(@PathVariable("num") String num,Model model) {
-		System.out.println(num);
 		model.addAttribute("newLostPetList", lostPet.findPetList(Integer.parseInt(num)));
 		model.addAttribute("pageList",pet.getPagination(Integer.parseInt(num),lostPet.lostPetCount()));
 		
@@ -200,8 +194,6 @@ public class MyController {
 	@RequestMapping("/find/lostpet/{num}")
 	public HashMap<String, Object> lostPetDetail(@PathVariable("num")String num){
 		HashMap<String,Object> map = new HashMap<String, Object>();
-
-		System.out.println(num);
 		map.put("test", lostPet.lostPetDetail(num) );
 		return map;
 	}
@@ -216,7 +208,6 @@ public class MyController {
 	@ResponseBody
 	@RequestMapping(value="/lost/regist", method=RequestMethod.POST)
 	public int petRegist__lost(@RequestBody LostPetDTO dto) {
-		System.out.println(dto);
 		int complete;
 		
 		try{
@@ -251,7 +242,6 @@ public class MyController {
 	@ResponseBody
 	@RequestMapping(value="/regist/pet", method=RequestMethod.POST)
 	public int petRegist(@RequestBody PetDTO dto) {
-		System.out.println(dto);
 		int complete;
 		
 		try{
@@ -277,8 +267,6 @@ public class MyController {
 	@RequestMapping(value="/regist/management/update", method=RequestMethod.POST)
 	public List<PetDTO> petUpdate(@RequestBody PetDTO dto) {
 		
-		System.out.println("---------");
-		System.out.println(dto);
 		pet.petUpdate(dto);
 		return pet.petManage(dto.getPet_admin());
 	}

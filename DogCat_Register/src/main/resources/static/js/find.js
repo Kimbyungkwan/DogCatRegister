@@ -182,10 +182,10 @@ const petSubmit = async obj => {
   // });
 };
 
-const resetForm = (target, callback) => {
-  Array.prototype.forEach.call(target, input => {
-    console.log(input);
-    callback(input);
-    inputDataContent.value = '';
-  });
-};
+// const resetForm = (target, callback) => {
+//   Array.prototype.forEach.call(target, input => {
+//     console.log(input);
+//     callback(input);
+//     inputDataContent.value = '';
+//   });
+// };
