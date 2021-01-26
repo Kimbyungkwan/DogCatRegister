@@ -91,6 +91,7 @@ public class MyController {
 				user.userCheck(loginCommand).getUser_password().equals(loginCommand.getUser_password())) {
 			}
 			session.setAttribute("user", user.userCheck(loginCommand));
+			session.setMaxInactiveInterval(60 * 30);
 			System.out.println("user Login");
 			page="redirect:/home";
 		} catch (Exception e) {
@@ -169,7 +170,7 @@ public class MyController {
 
 	@ResponseBody 
 	@RequestMapping("/animal/counter")
-	public int animalCounter() {
+	public int animalCounter(HttpSession session) {
 		return pet.petCounter();
 	}
 	
@@ -192,7 +193,7 @@ public class MyController {
 	
 	@ResponseBody 
 	@RequestMapping("/find/lostpet/{num}")
-	public HashMap<String, Object> lostPetDetail(@PathVariable("num")String num){
+	public HashMap<String, Object> lostPetDetail(@PathVariable("num")String num,HttpSession session){
 		HashMap<String,Object> map = new HashMap<String, Object>();
 		map.put("test", lostPet.lostPetDetail(num) );
 		return map;
@@ -200,14 +201,14 @@ public class MyController {
 	
 	@ResponseBody 
 	@RequestMapping(value="/lost/fileUpload", method=RequestMethod.POST)
-	public String fileUpload__lost(HttpServletRequest request) {
+	public String fileUpload__lost(HttpServletRequest request,HttpSession session) {
 		
 		return file.fileUpload(request);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/lost/regist", method=RequestMethod.POST)
-	public int petRegist__lost(@RequestBody LostPetDTO dto) {
+	public int petRegist__lost(@RequestBody LostPetDTO dto,HttpSession session) {
 		int complete;
 		
 		try{
@@ -241,7 +242,7 @@ public class MyController {
 	
 	@ResponseBody
 	@RequestMapping(value="/regist/pet", method=RequestMethod.POST)
-	public int petRegist(@RequestBody PetDTO dto) {
+	public int petRegist(@RequestBody PetDTO dto,HttpSession session) {
 		int complete;
 		
 		try{
@@ -258,14 +259,14 @@ public class MyController {
 	
 	@ResponseBody
 	@RequestMapping(value="/regist/management", method=RequestMethod.POST)
-	public List<PetDTO> petManagement(@RequestBody String userNum) {
+	public List<PetDTO> petManagement(@RequestBody String userNum,HttpSession session) {
 		
 		return pet.petManage(userNum);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/regist/management/update", method=RequestMethod.POST)
-	public List<PetDTO> petUpdate(@RequestBody PetDTO dto) {
+	public List<PetDTO> petUpdate(@RequestBody PetDTO dto,HttpSession session) {
 		
 		pet.petUpdate(dto);
 		return pet.petManage(dto.getPet_admin());

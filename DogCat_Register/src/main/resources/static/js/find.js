@@ -107,7 +107,6 @@ fileForm.addEventListener('change', e => {
 });
 
 const fetchLostPetRegist = async img => {
-  console.log(img);
   const formData = new FormData();
   formData.append('imageFile', img);
   let response = await fetch('lost/fileUpload', {
@@ -115,7 +114,6 @@ const fetchLostPetRegist = async img => {
     body: formData,
   });
   let result = await response.json();
-  console.log(result);
   petPhoto.value = result.src;
   registImg.src = '/static/' + result.src;
   fileForm.value = '';
@@ -132,7 +130,6 @@ const emptyMessage = document.querySelector('.empty__message');
 const FORM_LIST_LENGTH = 8;
 
 formSendBtn.addEventListener('click', () => {
-  console.log(formEmptyChecker(formCreator(), FORM_LIST_LENGTH));
   if (!formEmptyChecker(formCreator(), 8)) {
     emptyMessage.classList.add('empty__message__showing');
     return;
@@ -168,7 +165,6 @@ const petSubmit = async obj => {
     body: JSON.stringify(obj),
   });
   let result = await response.json();
-  console.log(result);
 
   window.location.reload();
 
@@ -184,7 +180,6 @@ const petSubmit = async obj => {
 
 // const resetForm = (target, callback) => {
 //   Array.prototype.forEach.call(target, input => {
-//     console.log(input);
 //     callback(input);
 //     inputDataContent.value = '';
 //   });

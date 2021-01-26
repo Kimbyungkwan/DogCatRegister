@@ -90,7 +90,6 @@ petTable.addEventListener('click', e => {
     }
     postForm[input.name] = input.value;
   });
-  console.log(postForm);
   petDataSetFetch(postForm);
 });
 
@@ -98,7 +97,6 @@ petTable.addEventListener('click', e => {
 petTable.addEventListener('click', e => {
   if (!e.target.parentNode.classList.contains('pet__table__data')) return;
   const petTableForm = document.querySelectorAll('.pet__table__data-form');
-  console.log(e.target.parentNode.dataset.petNum);
   petTableForm.forEach(form => {
     if (e.target.parentNode.dataset.petNum == form.dataset.petNum) {
       form.classList.toggle('pet__table__data-form-showing');
@@ -174,7 +172,6 @@ submitBtn.addEventListener('click', () => {
   if (postForm.pet_photo == '') {
     postForm.pet_photo = '/static/upload/images/main_default.png';
   }
-  console.log(postForm);
   setTimeout(() => {
     petSubmit(postForm);
   }, 300);
@@ -190,7 +187,6 @@ const petSubmit = async obj => {
     body: JSON.stringify(obj),
   });
   let result = await response.json();
-  console.log(result);
   if (result) {
     completeModal.innerHTML = `
     <h4 class="complete__title" onclick="closeModal()" >
